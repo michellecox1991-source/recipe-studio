@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Recipe Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--ink:#1c2a21;--mut:#5d6b62;--leaf:#2e7d4f;--on:#fff;--tom:#c93a22;--mist:#eef4ef;--line:#d5e0d8;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121a15;--ink:#eaf2ec;--mut:#9fb1a5;--leaf:#6cc590;--on:#0d1a12;--tom:#ff8a72;--mist:#1b261f;--line:#2b3a30}}
+:root[data-theme="dark"]{--bg:#121a15;--ink:#eaf2ec;--mut:#9fb1a5;--leaf:#6cc590;--on:#0d1a12;--tom:#ff8a72;--mist:#1b261f;--line:#2b3a30}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.55 Nunito,system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque",Nunito,system-ui,sans-serif;line-height:1.1;margin:0}
+.wrap{max-width:1040px;margin:0 auto;padding:20px 18px 60px}
+.brand{font:800 20px "Bricolage Grotesque",sans-serif;color:var(--leaf)}
+.tabs{display:flex;gap:8px;margin:14px 0 26px;flex-wrap:wrap}
+button{font:inherit;cursor:pointer;color:inherit}
+.tab{border:2px solid var(--line);background:none;border-radius:999px;padding:8px 16px;font-weight:700}
+.tab[aria-pressed=true]{background:var(--leaf);border-color:var(--leaf);color:var(--on)}
+.hero{display:grid;gap:22px;grid-template-columns:1fr;align-items:end}
+@media(min-width:760px){.hero{grid-template-columns:1.2fr 1fr}}
+.photo{aspect-ratio:4/3;border-radius:28px 6px 28px 6px;background:radial-gradient(circle at 50% 55%,var(--bg) 0 30%,var(--mist) 31% 100%);display:grid;place-items:center;color:var(--mut);text-align:center;font-size:15px;border:2px dashed var(--line)}
+h1{font-size:clamp(30px,6vw,52px);font-weight:800;letter-spacing:-.02em}
+.sub{color:var(--mut);margin:10px 0 16px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.chip{background:var(--mist);border-radius:10px;padding:5px 12px;font-weight:700;font-size:15px}
+.por{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.por b{margin-right:4px}
+.pb{width:46px;height:46px;border-radius:50%;border:2px solid var(--leaf);background:none;font-weight:800;color:var(--leaf)}
+.pb[aria-pressed=true]{background:var(--leaf);color:var(--on)}
+.go{margin-top:16px;background:var(--tom);color:#fff;border:0;border-radius:14px;padding:13px 22px;font-weight:800;font-size:17px}
+.note{background:var(--mist);border-left:5px solid var(--tom);padding:10px 14px;border-radius:4px 14px 14px 4px;margin:20px 0 0;font-size:15px}
+.cols{display:grid;gap:30px;margin-top:34px;grid-template-columns:1fr}
+@media(min-width:860px){.cols{grid-template-columns:340px 1fr}.ing{position:sticky;top:16px;align-self:start}}
+h2{font-size:26px;margin-bottom:14px}
+h3{font-size:18px;color:var(--leaf);margin:20px 0 8px}
+.ing ul{list-style:none;margin:0;padding:0}
+.ing li{display:flex;gap:10px;align-items:baseline;padding:7px 0;border-bottom:1px solid var(--line)}
+.ing input{accent-color:var(--leaf);width:18px;height:18px;flex:none;transform:translateY(3px)}
+.ing .a{font-weight:700;min-width:74px;flex:none}
+.ing li.done{opacity:.45;text-decoration:line-through}
+.est{color:var(--mut);font-size:13px}
+ol.st{margin:0;padding:0;list-style:none;counter-reset:s}
+ol.st li{counter-increment:s;position:relative;padding:4px 0 14px 46px}
+ol.st li::before{content:counter(s);position:absolute;left:0;top:2px;width:32px;height:32px;border-radius:50%;background:var(--mist);color:var(--leaf);font:800 16px/32px "Bricolage Grotesque",sans-serif;text-align:center}
+.st b{color:var(--ink);background:var(--mist);border-radius:6px;padding:0 5px}
+.tm{display:inline-block;margin-left:6px;font-size:14px;color:var(--mut)}
+#cook{position:fixed;inset:0;background:var(--bg);z-index:20;display:none;flex-direction:column;padding:calc(18px + env(safe-area-inset-top,0px)) 20px calc(18px + env(safe-area-inset-bottom,0px))}
+#cook.on{display:flex}
+#cook .top{display:flex;justify-content:space-between;align-items:center;color:var(--mut);font-weight:700}
+#cook .body{flex:1;display:flex;flex-direction:column;justify-content:center;max-width:720px;margin:0 auto;width:100%}
+#cook .g{color:var(--leaf);font:800 20px "Bricolage Grotesque",sans-serif;margin-bottom:10px}
+#cook .tx{font-size:clamp(24px,5vw,34px);line-height:1.35}
+#cook .nav{display:flex;gap:12px;max-width:720px;margin:0 auto;width:100%}
+.nav button{flex:1;padding:16px;border-radius:14px;border:2px solid var(--leaf);background:none;font-weight:800;font-size:18px}
+.nav .nx{background:var(--leaf);color:var(--on)}
+.tbtn{margin-top:22px;align-self:flex-start;background:var(--tom);color:#fff;border:0;border-radius:12px;padding:12px 20px;font-weight:800;font-size:18px}
+.x{background:none;border:0;font-size:16px;font-weight:700;color:var(--mut)}
+:focus-visible{outline:3px solid var(--tom);outline-offset:2px}
+/* Apple-style minimalist theme */
+:root{--bg:#fff;--ink:#1d1d1f;--mut:#6e6e73;--leaf:#0071e3;--on:#fff;--tom:#0071e3;--mist:#f5f5f7;--line:#d2d2d7}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#000;--ink:#f5f5f7;--mut:#a1a1a6;--leaf:#2997ff;--on:#fff;--tom:#0a84ff;--mist:#1c1c1e;--line:#38383a}}
+:root[data-theme="dark"]{--bg:#000;--ink:#f5f5f7;--mut:#a1a1a6;--leaf:#2997ff;--on:#fff;--tom:#0a84ff;--mist:#1c1c1e;--line:#38383a}
+body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",Inter,"Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.47}
+h1,h2,h3,.brand,#cook .g,ol.st li::before{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",Inter,"Helvetica Neue",Arial,sans-serif}
+.wrap{max-width:980px}
+.brand{font-weight:600;font-size:17px;color:var(--ink);letter-spacing:-.01em}
+.tabs{display:inline-flex;background:var(--mist);padding:3px;border-radius:12px;gap:2px;margin:12px 0 48px}
+.tab{border:0;border-radius:9px;padding:7px 16px;font-weight:500;font-size:14px;color:var(--ink)}
+.tab[aria-pressed=true]{background:var(--bg);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.18)}
+h1{font-weight:600;letter-spacing:-.035em;font-size:clamp(34px,6vw,56px);line-height:1.05}
+.sub{font-size:19px;color:var(--mut)}
+.photo{border:0;border-radius:24px;background:var(--mist);font-size:14px}
+.chips{gap:18px}
+.chip{background:none;padding:0;border-radius:0;color:var(--mut);font-weight:400;font-size:15px}
+.por{background:var(--mist);border-radius:14px;padding:6px;display:inline-flex;gap:2px}
+.por b{margin:0 8px 0 10px;font-weight:500;font-size:14px;color:var(--mut)}
+.pb{width:44px;height:36px;border-radius:9px;border:0;font-weight:500;color:var(--ink);font-size:16px}
+.pb[aria-pressed=true]{background:var(--bg);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.18)}
+.go{border-radius:980px;padding:12px 26px;font-weight:500;background:var(--leaf);color:#fff;margin-top:22px}
+.note{border:0;background:var(--mist);border-radius:16px;padding:14px 18px;color:var(--mut)}
+.cols{margin-top:56px;gap:56px}
+h2{font-size:28px;font-weight:600;letter-spacing:-.02em}
+h3{font-size:15px;font-weight:600;color:var(--mut);margin:28px 0 6px}
+.ing{background:var(--mist);border-radius:20px;padding:6px 22px 20px}
+.ing h2{margin-top:20px}
+.ing li:last-child{border-bottom:0}
+.ing .a{font-weight:600}
+ol.st li{padding:2px 0 18px 34px}
+ol.st li::before{background:none;color:var(--mut);font-weight:600;font-size:15px;width:auto;height:auto;line-height:1.7;top:2px;border-radius:0;text-align:left}
+.st b{background:none;padding:0;border-radius:0;font-weight:600}
+.tm{background:var(--mist);border-radius:980px;padding:1px 10px;font-size:13px;margin-left:8px}
+#cook .g{font-weight:600;font-size:17px;color:var(--mut)}
+#cook .tx{font-weight:600;letter-spacing:-.02em}
+.nav button{border:0;background:var(--mist);border-radius:980px;font-weight:500;padding:15px}
+.nav .nx{background:var(--leaf);color:#fff}
+.tbtn{border-radius:980px;background:var(--leaf);font-weight:500}
+:focus-visible{outline-color:var(--leaf)}
+/* Plant-based cookbook accents: bright pastels, chunky headings, ingredient icons */
+:root{--leaf:#17894c;--tom:#f0502f;--c0:#d3f2dc;--c1:#ffe9a3;--c2:#ffd5bd;--c3:#ffd3da;--c4:#d3e8ff}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--leaf:#5fd68f;--tom:#ff7355}}
+:root[data-theme="dark"]{--leaf:#5fd68f;--tom:#ff7355}
+h1,h2,h3,.brand{font-family:"Bricolage Grotesque",-apple-system,BlinkMacSystemFont,"SF Pro Display",Inter,Arial,sans-serif}
+h1{font-weight:800;letter-spacing:-.03em}
+h1::after{content:"";display:block;width:88px;height:10px;border-radius:99px;background:var(--tom);margin-top:16px}
+h2{font-weight:800}
+.brand{font-weight:800;color:var(--leaf)}
+.tab[aria-pressed=true]{background:var(--c1);color:#1d1d1f;font-weight:700}
+.pb[aria-pressed=true]{background:var(--c1);color:#1d1d1f;font-weight:800}
+.go,.tbtn{background:var(--tom);color:#fff;font-weight:700}
+.nav .nx{background:var(--leaf);color:var(--on)}
+.photo{background:var(--c0);color:#1d1d1f;border-radius:46% 54% 48% 52%/52% 46% 54% 48%;aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;max-width:420px;justify-self:center;width:100%}
+.photo .em{font-size:104px;line-height:1}
+h3[class^="c"]{display:inline-block;color:#1d1d1f;border-radius:999px;padding:5px 15px;font-size:15px;font-weight:800;margin:26px 0 8px}
+.c0{background:var(--c0)}.c1{background:var(--c1)}.c2{background:var(--c2)}.c3{background:var(--c3)}.c4{background:var(--c4)}
+.ing li{align-items:center}
+.ic{width:34px;height:34px;flex:none;display:grid;place-items:center;background:var(--c1);border-radius:50%;font-size:18px}
+.ing li:nth-child(3n+2) .ic{background:var(--c0)}.ing li:nth-child(3n) .ic{background:var(--c2)}
+.ing input{transform:none}
+ol.st li::before{background:var(--c1);color:#1d1d1f;width:28px;height:28px;border-radius:50%;line-height:28px;text-align:center;font-weight:800;top:0}
+ol.st li{padding-left:42px}
+.st b{background:var(--c1);color:#1d1d1f;border-radius:8px;padding:0 6px;font-weight:700}
+.tm{background:var(--c4);color:#1d1d1f;font-weight:700}
+#cook .g{color:var(--leaf);font-weight:800}
+/* Back to pure Apple-style minimalism */
+:root{--leaf:#0071e3;--tom:#0071e3}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--leaf:#2997ff;--tom:#0a84ff}}
+:root[data-theme="dark"]{--leaf:#2997ff;--tom:#0a84ff}
+h1,h2,h3,.brand,#cook .g{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",Inter,"Helvetica Neue",Arial,sans-serif}
+h1{font-weight:600;letter-spacing:-.035em}
+h1::after{display:none}
+h2{font-weight:600}
+.brand{font-weight:600;color:var(--ink)}
+.hero{gap:48px}
+.tab[aria-pressed=true],.pb[aria-pressed=true]{background:var(--bg);color:var(--ink);font-weight:500}
+.go,.tbtn{background:var(--leaf);color:#fff;font-weight:500}
+.photo{background:var(--mist);border-radius:24px;aspect-ratio:4/3;max-width:none;color:var(--mut);font-size:14px}
+.photo .em{display:none}
+h3[class^="c"]{background:none;padding:0;border-radius:0;display:block;font-size:13px;font-weight:600;color:var(--mut);margin:30px 0 6px}
+.ic{display:none}
+.ing li{align-items:baseline}
+.ing input{transform:translateY(3px)}
+ol.st li{padding-left:34px}
+ol.st li::before{background:none;color:var(--mut);width:auto;height:auto;line-height:1.7;font-weight:600;font-size:15px;border-radius:0;text-align:left;top:2px}
+.st b{background:none;padding:0;font-weight:600;color:var(--ink)}
+.tm{background:var(--mist);color:var(--mut);font-weight:400}
+#cook .g{color:var(--mut);font-weight:600}
+#cook .tx{font-weight:600}
+.nav .nx{background:var(--leaf);color:#fff}
+/* PlantYou-inspired recipe page: single column, big photo, hack-it tips, recipe card */
+:root{--blush:#fdeee9;--leaf:#2f7a3f;--tom:#e8573d}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--blush:#251e1b;--leaf:#6cc590;--tom:#ff8a72}}
+:root[data-theme="dark"]{--blush:#251e1b;--leaf:#6cc590;--tom:#ff8a72}
+.pl{max-width:720px;margin:0 auto}
+.pl h1{text-align:center;font-family:"Bricolage Grotesque",-apple-system,Arial,sans-serif;font-weight:800;letter-spacing:-.03em;font-size:clamp(34px,7vw,56px);line-height:1.05}
+.lead{text-align:center;color:var(--mut);font-size:19px;margin:14px 0 28px}
+.pl .photo{aspect-ratio:4/5;width:100%;border-radius:20px;margin:0 0 20px;max-width:none}
+.pl .photo .em{display:block;font-size:90px}
+h2.sec,h2.ct,.h,h4{font-family:"Bricolage Grotesque",-apple-system,Arial,sans-serif;color:var(--ink)}
+h2.sec{font-size:28px;font-weight:800;margin:44px 0 14px}
+.hk{padding-left:20px}.hk li{margin:10px 0}
+.card{background:var(--blush);border-radius:24px;padding:32px 26px;margin-top:48px}
+h2.ct{font-size:28px;font-weight:800;line-height:1.15;margin:0 0 10px}
+h2.ct em{font-family:Georgia,"Times New Roman",serif;font-weight:400;color:var(--tom)}
+.btns{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+.go{background:var(--tom);margin-top:0}
+.alt{background:none;border:2px solid var(--ink);border-radius:980px;padding:10px 22px;font-weight:700}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:16px;padding:16px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:6px 0 10px}
+.meta>div:first-child{grid-column:1/-1}
+.meta span{display:block;font-size:13px;color:var(--mut);margin-bottom:4px}
+.card .por{background:var(--bg)}
+.h{font-size:22px;font-weight:800;margin:30px 0 8px}
+h4{font-size:16px;font-weight:700;margin:18px 0 6px}
+.in{padding-left:20px}.in li{margin:6px 0}
+.ins{list-style:none;padding:0}.ins li{margin:0 0 14px}
+.sl{color:var(--tom)}
+@media print{.tabs,.btns,#cook{display:none}}
+</style></head>
+<body><div class="wrap">
+<div class="brand">Recipe Studio</div>
+<div class="tabs" id="tabs"></div>
+<div id="app"></div>
+</div>
+<div id="cook" aria-live="polite"></div>
+<script>
+// ---- Data model: ingredient = {n:name,a:amount,u:unit,s:scaling l|s|f,g:group,e:estimated,t:text}
+const I=(id,n,a,u,s,g,e)=>({id,n,a,u,s,g,e});
+const R=[{
+ title:"Roasted chicken, cauliflower & parsnip soup",sub:"With black lentils, mushrooms and small meatballs. Chicken and stock are made the day before.",base:6,active:195,total:330,
+ ing:[
+  I("chk","bone-in chicken thighs & drumsticks",1500,"g","l","Chicken"),I("but","butter",100,"g","l","Chicken"),I("gar","head garlic, unpeeled",1,"pc","l","Chicken"),I("bay","bay leaves",3,"pc","s","Chicken"),I("ros","rosemary",5,"sprig","s","Chicken"),I("wine","white wine",100,"ml","l","Chicken",1),I("hon","honey",1,"tbsp","l","Chicken"),I("pap","smoked paprika",1,"tsp","s","Chicken"),I("chi","chilli flakes",.5,"tsp","s","Chicken"),I("caj","cajun seasoning",1,"tsp","s","Chicken"),
+  I("wat","cold water, bones from the chicken, 1 tbsp vinegar",2500,"ml","l","Stock"),
+  I("oni","brown onions",4,"pc","l","Soup base"),I("bb","butter",40,"g","l","Soup base"),I("clo","cloves",4,"pc","s","Soup base"),I("pot","potato, peeled and cubed",200,"g","l","Soup base",1),I("stk","chicken stock",1500,"ml","l","Soup base"),
+  I("cau","cauliflower",500,"g","l","Roasted vegetables"),I("par","parsnips",400,"g","l","Roasted vegetables",1),I("cum","cumin seeds",1,"tsp","s","Roasted vegetables"),I("cor","coriander seeds",1,"tsp","s","Roasted vegetables"),I("tur","turmeric",.5,"tsp","s","Roasted vegetables"),I("oil","oil",2,"tbsp","l","Roasted vegetables"),
+  I("pork","minced pork",320,"g","l","Meatballs"),I("beef","minced beef",80,"g","l","Meatballs"),I("bre","breadcrumbs soaked in milk",2,"tbsp","l","Meatballs"),
+  I("shi","dried shiitake",15,"g","l","Mushrooms & lentils"),I("mus","fresh mushrooms",250,"g","l","Mushrooms & lentils"),I("len","black lentils",100,"g","l","Mushrooms & lentils"),I("lee","leek",1,"pc","l","Mushrooms & lentils"),I("lb","butter",15,"g","l","Mushrooms & lentils"),
+  I("lem","lemon, juiced",.5,"pc","s","Finish")],
+ st:[
+  ["Chicken","Dry-brine {chk} with salt and leave uncovered in the fridge overnight."],
+  ["Chicken","Heat the oven to 220 °C. Make a bed of {ros}, {bay} and {gar} in a tray. Rub {but} under and over the skin."],
+  ["Chicken","Roast 15 minutes at 220 °C, then lower to 180 °C. Add {wine} to the tray, not over the chicken. Baste every 20 minutes.",15],
+  ["Chicken","In the last 15 minutes brush with melted tray butter, {hon}, {pap}, {chi} and {caj}.",15],
+  ["Chicken","Roast until the thigh reaches 80–85 °C. Rest 15 minutes, pull the meat and keep the juices, butter and soft garlic."],
+  ["Stock","Put the bones in a pot with {wat}. Heat slowly and skim the foam at 70–85 °C."],
+  ["Stock","Simmer at 88–95 °C for 2–3 hours, never a rolling boil. Strain, cool below 5 °C within 2 hours and lift off the fat.",150],
+  ["Soup base","Caramelise {oni} in {bb} on low heat, stirring often.",40],
+  ["Soup base","Add {clo}, the roasted garlic, 2–3 tbsp tray butter and juices, {stk} and {pot}. Simmer, then remove cloves and bay.",20],
+  ["Roasted vegetables","Toast and crush {cum} and {cor}. Toss {cau} and {par} with {tur}, {oil} and salt. Roast at 220 °C, then grill the last 3–5 minutes.",28],
+  ["Roasted vegetables","Add to the pot, simmer 10 minutes, then blend with a stick blender until smooth.",10],
+  ["Meatballs","Mix {pork} and {beef} with {bre}, salt, pepper and paprika. Roll 2 cm balls and bake at 200 °C.",13],
+  ["Mushrooms & lentils","Soak {shi} in 60–70 °C water. Keep the liquid.",25],
+  ["Mushrooms & lentils","Simmer {len} in stock and soaking liquid until tender.",22],
+  ["Mushrooms & lentils","Sear {mus} in batches, add the shiitake, a little chicken butter and rosemary. Sauté {lee} in {lb} for 5 minutes. Combine."],
+  ["Finish","Stir everything and the pulled chicken into the soup. Simmer gently, without a hard boil. Finish with {lem} and parsley.",8]]
+},{
+ title:"Vogelnestjes with creamy tomato sauce",sub:"Meatballs around a boiled egg, glazed vegetables and pasta. The original amounts are estimates, so cook by feel.",base:4,active:40,total:70,
+ ing:[
+  I("pork","minced pork",100,"g","l","Meatballs"),I("veal","minced veal",200,"g","l","Meatballs"),I("beef","minced beef",200,"g","l","Meatballs"),I("egg","raw egg",1,"pc","l","Meatballs"),I("parm","grated parmesan",4,"tbsp","l","Meatballs",1),I("pep","black pepper",null,"pinch","t","Meatballs"),I("bre","breadcrumbs, added until it rolls",null,"as needed","t","Meatballs"),I("heg","hard-boiled eggs, peeled",6,"pc","l","Meatballs"),
+  I("but1","butter",20,"g","l","Creamy tomato sauce",1),I("on1","brown onion, finely diced",1,"pc","l","Creamy tomato sauce"),I("gar","garlic cloves, centre removed",5,"clove","s","Creamy tomato sauce"),I("tp","tomato paste",2,"tbsp","l","Creamy tomato sauce",1),I("cr","cooking cream",200,"ml","l","Creamy tomato sauce",1),I("tik","tikka masala paste",1,"tsp","s","Creamy tomato sauce"),
+  I("but2","butter",20,"g","l","Vegetables",1),I("ro","red onions, in strips",3,"pc","l","Vegetables"),I("car","carrots, in batons",3,"pc","l","Vegetables",1),I("cap","capsicums, in strips",4,"pc","l","Vegetables"),I("cou","courgette, seeds removed, in batons",1,"pc","l","Vegetables"),I("spc","paprika, chilli and cayenne powder",1,"tsp","s","Vegetables",1),I("hon","honey",3,"tbsp","l","Vegetables"),
+  I("pas","rigatoni, penne or tortiglioni",400,"g","l","Pasta",1),I("thy","thyme, pepper, salt, olive oil",null,"to taste","t","Pasta")],
+ st:[
+  ["Meatballs","Mix {pork}, {veal}, {beef}, {egg}, {parm} and {pep}. Add {bre} gradually until the mixture holds together."],
+  ["Meatballs","Wrap the mixture around each of {heg} to make nests. Roll leftovers into small plain meatballs."],
+  ["Meatballs","Sear in a pan or on the grill, or bake at about 200 °C, until the core reaches 72–75 °C (time is an estimate).",18],
+  ["Meatballs","Keep the pan juices. Deglaze with a splash of water and save it for the sauce."],
+  ["Creamy tomato sauce","Cook {on1} in {but1} until glossy. Add {gar} and cook a few minutes."],
+  ["Creamy tomato sauce","Stir in {tp} and fry briefly to remove its sour edge."],
+  ["Creamy tomato sauce","Add the meat juices, {cr} and {tik}. Simmer gently.",10],
+  ["Vegetables","Cook {ro} in {but2} until glossy. Add {car} for 3 minutes, then {cap} for 3 minutes, then {cou} for 2 minutes."],
+  ["Vegetables","Add {spc} and {hon} and cook 2 minutes. Pour in the sauce, warm 2 minutes, then fold in the meatballs.",2],
+  ["Pasta","Cook {pas} al dente. Toss with {thy}. Serve the meatballs and vegetables in sauce over the pasta, topped with grated parmesan."]]
+}];
+// ---- Scaling engine
+const FR={.25:"¼",.5:"½",.75:"¾"};
+function frac(v){const w=Math.floor(v),f=v-w;return (w?w:"")+(FR[f]||"")||"¼"}
+function amt(i,n,base){
+ if(i.a==null)return i.u;
+ let f=n/base;
+ if(i.s=="s"&&f!=1)f=f>1?1+(f-1)*.75:1-(1-f)*.75;
+ let v=i.a*f,u=i.u,out;
+ if(u=="g"){const r=v<100?5:v<500?10:25;v=Math.max(r,Math.round(v/r)*r);out=v>=1000?(+(v/1000).toFixed(2))+" kg":v+" g"}
+ else if(u=="ml"){const r=v<100?5:v<500?25:50;v=Math.max(r,Math.round(v/r)*r);out=v>=1000?(+(v/1000).toFixed(2))+" l":v+" ml"}
+ else if(u=="tsp"||u=="tbsp"){v=Math.max(.25,Math.round(v*4)/4);out=frac(v)+" "+u}
+ else{const half=i.a%1!=0;v=half?Math.max(.5,Math.round(v*2)/2):Math.max(1,Math.round(v));out=(v%1?frac(v):v)+(u=="pc"?"":" "+u)}
+ return (i.e||i.s=="s"?"~":"")+out;
+}
+// ---- UI
+const ICO=[[/water/,"💧"],[/chicken/,"🍗"],[/butter/,"🧈"],[/garlic/,"🧄"],[/bay/,"🍃"],[/rosemary|thyme|parsley/,"🌿"],[/wine/,"🍷"],[/honey/,"🍯"],[/paprika|chilli|cayenne|cajun/,"🌶️"],[/stock/,"🥣"],[/onion/,"🧅"],[/potato/,"🥔"],[/cauliflower/,"🥦"],[/parsnip|carrot/,"🥕"],[/seeds|turmeric/,"🌾"],[/egg/,"🥚"],[/oil/,"🫒"],[/pork|beef|veal|mince/,"🥩"],[/bread/,"🍞"],[/shiitake|mushroom/,"🍄"],[/lentil/,"🫘"],[/leek/,"🥬"],[/lemon/,"🍋"],[/parmesan|cream/,"🧀"],[/tomato/,"🍅"],[/tikka/,"🍛"],[/capsicum/,"🫑"],[/courgette/,"🥒"],[/pasta|rigatoni/,"🍝"],[/pepper|salt/,"🧂"]];
+const ico=s=>{const m=ICO.find(x=>x[0].test(s.toLowerCase()));return m?m[1]:"🍽️"};
+let cur=0,n=4,ck={};
+const $=s=>document.querySelector(s);
+const fill=(t,r)=>t.replace(/\{(\w+)\}/g,(m,k)=>{const i=r.ing.find(x=>x.id==k);return i?`<b>${amt(i,n,r.base)} ${i.n}</b>`:m});
+const hm=m=>m>=60?Math.floor(m/60)+" h"+(m%60?" "+m%60+" min":""):m+" min";
+function groups(a,k){const o=[];a.forEach(x=>{const g=k(x);let e=o.find(y=>y[0]==g);if(!e)o.push(e=[g,[]]);e[1].push(x)});return o}
+function render(){
+ const r=R[cur];
+ $("#tabs").innerHTML=R.map((x,i)=>`<button class="tab" aria-pressed="${i==cur}" data-r="${i}">${x.title.split(" with ")[0]}</button>`).join("");
+ const big=n>r.base*1.5;
+ $("#app").innerHTML=`<div class="hero"><div><h1>${r.title}</h1><p class="sub">${r.sub}</p>
+ <div class="chips"><span class="chip">Hands-on ${hm(r.active)}</span><span class="chip">Total ${hm(r.total)}</span><span class="chip">Written for ${r.base} people</span></div>
+ <div class="por"><b>Cooking for</b>${[2,4,6,8,10].map(p=>`<button class="pb" aria-pressed="${p==n}" data-p="${p}" aria-label="${p} people">${p}</button>`).join("")}</div>
+ <button class="go" id="gocook">Start cooking</button></div>
+ <div class="photo"><div class="em">${cur?"🍝":"🍲"}</div><div>Your photo goes here</div></div></div>
+ ${big?`<p class="note">Bigger batch: use a larger pot and wider pans, and roast or bake in batches. Times stay the same, but heating up takes longer.</p>`:""}
+ <p class="est">~ means start with this amount and adjust to taste. Times and amounts marked as estimates were not in the original recipe.</p>
+ <div class="cols"><div class="ing"><h2>Ingredients</h2>${groups(r.ing,x=>x.g).map(([g,l],gi)=>`<h3 class="c${gi%5}">${g}</h3><ul>${l.map(i=>{const key=cur+i.id+i.g;return `<li class="${ck[key]?"done":""}"><input type="checkbox" data-k="${key}" ${ck[key]?"checked":""} aria-label="Ready"><span class="ic">${ico(i.n)}</span><span class="a">${amt(i,n,r.base)}</span><span>${i.n}${i.e?' <span class="est">(estimate)</span>':""}</span></li>`}).join("")}</ul>`).join("")}</div>
+ <div><h2>Method</h2>${groups(r.st,x=>x[0]).map(([g,l],gi)=>`<h3 class="c${gi%5}">${g}</h3><ol class="st">${l.map(s=>`<li>${fill(s[1],r)}${s[2]?`<span class="tm">${s[2]} min</span>`:""}</li>`).join("")}</ol>`).join("")}</div></div>`;
+}
+document.addEventListener("click",e=>{
+ const t=e.target.closest("[data-r],[data-p],#gocook");if(!t)return;
+ if(t.dataset.r!=null){cur=+t.dataset.r;n=R[cur].base>=6?6:4;render()}
+ else if(t.dataset.p){n=+t.dataset.p;render()}
+ else cookOpen();
+});
+document.addEventListener("change",e=>{const k=e.target.dataset.k;if(k){ck[k]=e.target.checked;e.target.closest("li").classList.toggle("done",e.target.checked)}});
+// ---- Cook mode
+let si=0,tid=null,wl=null;
+function cookOpen(){si=0;$("#cook").classList.add("on");try{navigator.wakeLock&&navigator.wakeLock.request("screen").then(l=>wl=l).catch(()=>{})}catch(_){}cook()}
+function cookClose(){clearInterval(tid);$("#cook").classList.remove("on");try{wl&&wl.release()}catch(_){}}
+function cook(){
+ const r=R[cur],s=r.st[si];clearInterval(tid);
+ $("#cook").innerHTML=`<div class="top"><span>Step ${si+1} of ${r.st.length} · for ${n} people</span><button class="x" id="cx">Close</button></div>
+ <div class="body"><div class="g">${s[0]}</div><div class="tx">${fill(s[1],r)}</div>${s[2]?`<button class="tbtn" id="tb">Start ${s[2]} min timer</button>`:""}</div>
+ <div class="nav"><button id="pv" ${si?"":"disabled"}>Back</button><button class="nx" id="nx">${si==r.st.length-1?"Done":"Next step"}</button></div>`;
+ $("#cx").onclick=cookClose;$("#pv").onclick=()=>{si--;cook()};
+ $("#nx").onclick=()=>{si==r.st.length-1?cookClose():(si++,cook())};
+ const tb=$("#tb");if(tb)tb.onclick=()=>{let left=s[2]*60;const up=()=>{tb.textContent=Math.floor(left/60)+":"+String(left%60).padStart(2,"0")+" left"};up();
+  tid=setInterval(()=>{left--;if(left<=0){clearInterval(tid);tb.textContent="Time is up";try{navigator.vibrate&&navigator.vibrate([300,150,300])}catch(_){}}else up()},1000)};
+}
+R[0].hack=["Make it gluten-free.|Use gluten-free breadcrumbs or oats in the meatballs.","Save time.|Use thighs only and make the stock under pressure in about 60 minutes.","Make it ahead.|Roast the chicken and make the stock the day before.","Gentler on the gut.|Use garlic-infused oil and rinse canned lentils instead of cooking them from dry."];
+R[1].hack=["Make it gluten-free.|Use gluten-free breadcrumbs and pasta.","Make it lactose-free.|Use lactose-free cream and a hard, naturally low-lactose cheese.","Softer yolks.|Boil the eggs for 7–8 minutes instead of a full hard boil.","Make it ahead.|Make the sauce and vegetables a day early and warm them gently."];
+render=function(){
+ const r=R[cur];let k=0;
+ $("#tabs").innerHTML=R.map((x,i)=>`<button class="tab" aria-pressed="${i==cur}" data-r="${i}">${x.title.split(" with ")[0]}</button>`).join("");
+ const big=n>r.base*1.5;
+ $("#app").innerHTML=`<article class="pl"><h1>${r.title}</h1><p class="lead">${r.sub}</p>
+ <div class="photo"><div class="em">${cur?"🍝":"🍲"}</div><div>Your photo goes here</div></div>
+ <h2 class="sec">Hack it!</h2><ul class="hk">${r.hack.map(h=>{const[a,b]=h.split("|");return `<li><b>${a}</b> ${b}</li>`}).join("")}</ul>
+ <section class="card"><h2 class="ct"><em>The recipe:</em> ${r.title}</h2><p class="sub">${r.sub}</p>
+ <div class="btns"><button class="go" id="gocook">Start cooking</button><button class="alt" onclick="window.print()">Print recipe</button></div>
+ <div class="meta"><div><span>Servings</span><div class="por">${[2,4,6,8,10].map(p=>`<button class="pb" aria-pressed="${p==n}" data-p="${p}" aria-label="${p} people">${p}</button>`).join("")}</div></div><div><span>Hands-on time</span><b>${hm(r.active)}</b></div><div><span>Total time</span><b>${hm(r.total)}</b></div></div>
+ ${big?`<p class="note">Bigger batch: use a larger pot and wider pans, and cook in batches. Times stay the same, but heating up takes longer.</p>`:""}
+ <h3 class="h">Ingredients</h3>${groups(r.ing,x=>x.g).map(([g,l])=>`<h4>For the ${g.toLowerCase()}</h4><ul class="in">${l.map(i=>`<li><b>${amt(i,n,r.base)}</b> ${i.n}${i.e?' <span class="est">(estimate)</span>':""}</li>`).join("")}</ul>`).join("")}
+ <h3 class="h">Instructions</h3><ul class="ins">${r.st.map(s=>`<li><b class="sl">Step ${++k}:</b> ${fill(s[1],r)}${s[2]?`<span class="tm">${s[2]} min</span>`:""}</li>`).join("")}</ul>
+ <p class="est">~ means start with this amount and adjust to taste.</p></section></article>`;
+};
+render();
+</script></body></html>
