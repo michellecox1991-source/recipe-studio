@@ -2,6 +2,7 @@
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Recipe Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#fff;--ink:#1c2a21;--mut:#5d6b62;--leaf:#2e7d4f;--on:#fff;--tom:#c93a22;--mist:#eef4ef;--line:#d5e0d8;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -175,6 +176,71 @@ h4{font-size:16px;font-weight:700;margin:18px 0 6px}
 .ins{list-style:none;padding:0}.ins li{margin:0 0 14px}
 .sl{color:var(--tom)}
 @media print{.tabs,.btns,#cook{display:none}}
+.tabs{display:flex;flex-wrap:wrap;max-width:100%}
+/* Mobile recipe-app look: soft page, rounded cards, ingredient rows with icons, floating action bar */
+:root{--bg:#f5f3ef;--card:#fff;--ink:#201d1a;--mut:#7a746c;--line:#ece7e0;--acc:#f26b2a;--acc2:#fde6d9;--tom:#f26b2a;--leaf:#f26b2a;--mist:#f5f3ef;--blush:#fff}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121110;--card:#1d1b19;--ink:#f4efe9;--mut:#a39b91;--line:#2c2926;--acc:#ff8a4d;--acc2:#3b2517;--tom:#ff8a4d;--leaf:#ff8a4d;--mist:#121110;--blush:#1d1b19}}
+:root[data-theme="dark"]{--bg:#121110;--card:#1d1b19;--ink:#f4efe9;--mut:#a39b91;--line:#2c2926;--acc:#ff8a4d;--acc2:#3b2517;--tom:#ff8a4d;--leaf:#ff8a4d;--mist:#121110;--blush:#1d1b19}
+.wrap{padding-bottom:120px}
+.brand{color:var(--acc)}
+.tabs{display:flex;flex-wrap:nowrap;overflow-x:auto;gap:8px;background:none;padding:2px 18px;margin:10px -18px 26px;max-width:none;scrollbar-width:none}
+.tab{flex:none;background:var(--card);color:var(--ink);border-radius:999px;padding:9px 18px;font-weight:600;white-space:nowrap;box-shadow:0 1px 2px rgba(0,0,0,.08)}
+.tab[aria-pressed=true]{background:var(--ink);color:var(--bg);box-shadow:none}
+.pl h1{text-align:left;font-size:clamp(32px,6vw,46px)}
+.lead{text-align:left;margin:10px 0 22px}
+.pl .photo{aspect-ratio:16/10;border-radius:28px;background:linear-gradient(135deg,var(--acc2),var(--card));box-shadow:0 10px 30px rgba(0,0,0,.08);margin-bottom:8px;color:var(--mut)}
+.pl .photo .em{font-size:80px}
+.hk{list-style:none;padding:0;display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.hk li{background:var(--card);border-radius:20px;padding:16px;margin:0;box-shadow:0 1px 2px rgba(0,0,0,.06)}
+.hk b{display:block;color:var(--acc);margin-bottom:4px}
+.card{background:var(--card);border-radius:28px;padding:26px 20px;box-shadow:0 10px 30px rgba(0,0,0,.07)}
+h2.ct em{color:var(--acc)}
+.meta{border:0;padding:0;gap:10px;margin:14px 0 4px;grid-template-columns:repeat(3,1fr)}
+.meta>div:first-child{grid-column:1/-1}
+.meta>div:not(:first-child){background:var(--bg);border-radius:18px;padding:12px;text-align:center}
+.meta b{font-size:18px}
+.card .por{display:flex;width:100%;background:var(--bg);border-radius:18px;padding:5px}
+.pb{flex:1;height:42px;border-radius:14px;width:auto}
+.pb[aria-pressed=true]{background:var(--acc);color:#fff}
+.in{list-style:none;padding:0;display:grid;gap:8px}
+.in li{display:flex;align-items:center;gap:12px;background:var(--bg);border-radius:16px;padding:10px 14px;margin:0}
+.ic2{width:38px;height:38px;flex:none;display:grid;place-items:center;background:var(--card);border-radius:12px;font-size:20px}
+.in .nm{flex:1;min-width:0}
+.in li b{color:var(--acc);white-space:nowrap}
+h4{color:var(--mut);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin:22px 0 8px}
+.ins li{background:var(--bg);border-radius:18px;padding:14px 16px;margin:0 0 10px}
+.sl{display:inline-block;background:var(--acc2);color:var(--acc);border-radius:999px;padding:0 10px;font-size:13px;margin-right:6px}
+.tm{background:var(--card);color:var(--acc);font-weight:700}
+.alt{border-color:var(--line);color:var(--ink)}
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:5;display:flex;justify-content:center;padding:14px 18px calc(12px + env(safe-area-inset-bottom,0px));background:linear-gradient(transparent,var(--bg) 45%);pointer-events:none}
+.dock .go{pointer-events:auto;width:100%;max-width:420px;border-radius:999px;padding:16px;font-size:17px;font-weight:700;background:var(--acc);color:#fff;box-shadow:0 10px 24px rgba(242,107,42,.35);margin:0}
+#cook .g{color:var(--acc)}
+.nav .nx,.tbtn{background:var(--acc);color:#fff}
+@media print{.dock{display:none}}
+/* Clean and warm: off-white, terracotta accent, serif headings, hairlines, no pictograms */
+:root{--bg:#faf6f0;--card:#fff;--ink:#2a2420;--mut:#857c72;--line:#eadfd2;--acc:#c85a2b;--acc2:#f6e4d6;--tom:#c85a2b;--leaf:#c85a2b;--mist:#faf6f0;--blush:#fff}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17130f;--card:#201b16;--ink:#f3ebe1;--mut:#a89d90;--line:#352d25;--acc:#e8814f;--acc2:#3a281c;--tom:#e8814f;--leaf:#e8814f;--mist:#17130f;--blush:#201b16}}
+:root[data-theme="dark"]{--bg:#17130f;--card:#201b16;--ink:#f3ebe1;--mut:#a89d90;--line:#352d25;--acc:#e8814f;--acc2:#3a281c;--tom:#e8814f;--leaf:#e8814f;--mist:#17130f;--blush:#201b16}
+.pl{max-width:680px}
+.pl h1,h2.sec,h2.ct,.h{font-family:Fraunces,Georgia,"Times New Roman",serif;font-weight:600;letter-spacing:-.015em}
+.pl h1{font-size:clamp(32px,6vw,46px);line-height:1.1}
+h2.ct em{font-style:italic;font-weight:500}
+.tab{background:none;border:1px solid var(--line);box-shadow:none;font-weight:500}
+.tab[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.pl .photo{background:linear-gradient(160deg,var(--acc2),var(--bg));border:1px solid var(--line);box-shadow:none;font-size:15px}
+.hk li{box-shadow:none;border:1px solid var(--line)}
+.card{box-shadow:none;border:1px solid var(--line);border-radius:24px}
+.meta>div:not(:first-child){background:none;border:1px solid var(--line);text-align:left;padding:12px 14px}
+.meta b{font-weight:600}
+.in li{background:none;border-radius:0;border-bottom:1px solid var(--line);padding:11px 0}
+.in li:last-child{border-bottom:0}
+.in li b{color:var(--ink);font-weight:600}
+.ic2{display:none}
+.ins li{background:none;border-radius:0;border-bottom:1px solid var(--line);padding:14px 0;margin:0}
+.ins li:last-child{border-bottom:0}
+.sl{background:none;color:var(--acc);padding:0;font-weight:700;margin-right:4px}
+.tm{background:var(--acc2);color:var(--acc);font-weight:600}
+.dock .go{box-shadow:0 8px 20px rgba(200,90,43,.28);font-weight:600}
 </style></head>
 <body><div class="wrap">
 <div class="brand">Recipe Studio</div>
@@ -290,20 +356,58 @@ function cook(){
 }
 R[0].hack=["Make it gluten-free.|Use gluten-free breadcrumbs or oats in the meatballs.","Save time.|Use thighs only and make the stock under pressure in about 60 minutes.","Make it ahead.|Roast the chicken and make the stock the day before.","Gentler on the gut.|Use garlic-infused oil and rinse canned lentils instead of cooking them from dry."];
 R[1].hack=["Make it gluten-free.|Use gluten-free breadcrumbs and pasta.","Make it lactose-free.|Use lactose-free cream and a hard, naturally low-lactose cheese.","Softer yolks.|Boil the eggs for 7–8 minutes instead of a full hard boil.","Make it ahead.|Make the sauce and vegetables a day early and warm them gently."];
+R[0].tab="Chicken soup";R[1].tab="Vogelnestjes";
+R.push({title:"Roasted butternut, parsnip & caramelised onion soup",tab:"Butternut & parsnip",sub:"Roasted squash and parsnip, slowly caramelised onions and a little chilli, finished with a splash of acid.",base:4,active:40,total:100,
+ ing:[I("sq","butternut squash, peeled and cubed in 4 cm chunks",1000,"g","l","Sheet-pan roast"),I("pa","parsnips, peeled and chopped",2,"pc","l","Sheet-pan roast"),I("po","potato, peeled and cut in similar-sized chunks (for a thicker soup)",300,"g","l","Sheet-pan roast",1),I("gh","head of garlic, top sliced off, wrapped in foil",1,"pc","l","Sheet-pan roast"),I("o1","extra-virgin olive oil",2,"tbsp","l","Sheet-pan roast"),I("ms","maple syrup or honey (optional)",1,"tsp","l","Sheet-pan roast"),
+  I("on","large onions, thinly sliced",2,"pc","l","Onions & aromatics"),I("o2","olive oil",1,"tbsp","l","Onions & aromatics"),I("bu","butter",1,"tbsp","l","Onions & aromatics"),I("ch","fresh red or green chillies, finely chopped",1.5,"pc","s","Onions & aromatics"),I("sp","smoked paprika or a pinch of nutmeg (optional)",.5,"tsp","s","Onions & aromatics"),
+  I("st","warm vegetable or chicken stock",750,"ml","l","Liquid & finish"),I("cr","cream, coconut milk or crème fraîche (optional)",125,"ml","l","Liquid & finish"),I("ac","balsamic vinegar or lemon juice",1,"tsp","s","Liquid & finish")],
+ st:[["Sheet-pan roast","Heat the oven to 200 °C. Toss {sq}, {pa} and {po} with {o1}, {ms}, salt and pepper on a large tray. Put the {gh} in a corner."],
+  ["Sheet-pan roast","Roast, tossing halfway, until fork-tender and deeply golden at the edges.",40],
+  ["Onions & aromatics","Heat {o2} and {bu} in a heavy pot on medium-low. Cook {on} with a pinch of salt, stirring now and then, until deep, jammy golden brown.",30],
+  ["Onions & aromatics","Scoop out about half of the onions as a topping. Add {ch} and {sp} to the rest and cook 2 minutes until fragrant.",2],
+  ["Blend","Squeeze the soft roasted garlic out of its skins into the pot. Add the roasted squash and parsnips and {st}. Simmer 5 minutes, then blend until completely smooth.",5],
+  ["Finish","Stir in {cr} and warm gently. Add {ac}, then adjust salt and pepper."],
+  ["Finish","Serve topped with the reserved onions, black pepper and chilli flakes or toasted pumpkin seeds."]],
+ hack:["Make it dairy-free.|Use coconut milk and olive oil instead of cream and butter.","Save time.|Cut the squash and parsnip smaller so the tray roasts faster.","Don’t skip the acid.|Balsamic or lemon keeps the soup bright rather than sweet and heavy.","Thicker or thinner.|Start with 750 ml of stock and add more until it feels right."]});
+R.push({title:"Creamy caramelised fennel, onion & parsnip soup",tab:"Fennel & onion",sub:"Sweet fennel and slow onions, deglazed with sherry and blended with parsnip, topped with goat cheese.",base:4,active:30,total:65,
+ ing:[I("fe","large fennel bulbs, thinly sliced (keep the fronds)",2,"pc","l","Base"),I("on","large yellow onions, thinly sliced",3,"pc","l","Base"),I("pa","parsnips, peeled and diced",2,"pc","l","Base"),I("bu","butter (or olive oil)",3,"tbsp","l","Base"),I("ga","garlic, minced",2,"clove","s","Base"),I("th","fresh thyme leaves",1,"tsp","s","Base"),
+  I("co","Cognac (2 parts Cognac to 4 parts sherry)",30,"ml","l","Liquid"),I("sh","dry sherry (Oloroso or Fino)",60,"ml","l","Liquid"),I("st","vegetable or chicken stock",1000,"ml","l","Liquid"),I("sp","salt and black pepper",null,"to taste","t","Liquid"),
+  I("gc","fresh goat cheese",115,"g","l","To serve"),I("wa","walnuts, roasted",40,"g","l","To serve",1)],
+ st:[["Base","Melt {bu} in a large pot on medium heat. Add {on} and {fe} and cook slowly, stirring now and then, until deep golden brown, sweet and jammy.",35],
+  ["Base","Stir in {ga}, {pa} and {th}. Cook until fragrant.",3],
+  ["Liquid","Pour in {co} and let it bubble hard for about 30 seconds to burn off the harsh alcohol (or flame it carefully if you prefer)."],
+  ["Liquid","Straight away add {sh} and scrape up all the caramelised bits from the bottom of the pot. Simmer until the alcohol smell is gone.",3],
+  ["Liquid","Add {st}, bring to a boil, then lower the heat, cover and simmer until the parsnips are completely tender.",20],
+  ["Liquid","Blend with a stick blender until silky. Season with {sp}."],
+  ["To serve","While the soup simmers, roast {wa} in a 180 °C oven or a dry pan until fragrant, then chop roughly.",7],
+  ["To serve","Ladle into bowls and top with {gc}, the roasted walnuts and the reserved fennel fronds."]],
+ hack:["More anise.|Stir in 1 tbsp Pernod or pastis at the end.","A warm background note.|Simmer a star anise pod in the stock and remove it before blending.","Brighter.|Add half a diced apple with the parsnips, or a squeeze of lemon at the end.","Deeper savoury flavour.|Stir half a teaspoon of yeast extract into the stock."]});
+R.push({title:"French onion soup",tab:"French onion",sub:"Onions caramelised slowly in butter, deglazed, simmered in rich beef stock and baked under toasted baguette and Gruyère.",base:6,active:40,total:130,
+ ing:[I("on","yellow onions, peeled, halved and thinly sliced",1500,"g","l","Onions"),I("bu","unsalted butter",60,"g","l","Onions"),I("ol","olive oil",1.5,"tbsp","l","Onions"),I("su","sugar, to jumpstart browning",1,"tsp","l","Onions"),I("sa","kosher or sea salt, plus more to taste",1.5,"tsp","s","Onions"),I("ga","garlic, minced",4,"clove","s","Onions"),I("fl","plain flour (optional, to lightly body the broth)",1.5,"tbsp","l","Onions"),
+  I("wi","dry white wine or dry sherry",150,"ml","l","Broth"),I("st","rich beef stock",1500,"ml","l","Broth"),I("th","fresh thyme sprigs",3,"sprig","s","Broth"),I("bay","bay leaves",2,"pc","s","Broth"),I("wo","Worcestershire sauce (optional)",null,"a dash","t","Broth"),
+  I("ba","crusty baguette, sliced",1,"pc","l","Topping"),I("gr","Gruyère, grated",175,"g","l","Topping")],
+ st:[["Onions","Heat {bu} and {ol} in a large heavy pot on medium. Add {on}, {su} and {sa}, toss, and cook covered until softened.",10],
+  ["Onions","Uncover, lower the heat to medium-low and stir every few minutes, scraping the bottom, until deep, jammy and golden brown. Add a splash of water if they stick.",50],
+  ["Onions","Add {ga} and cook 1 minute. Sprinkle over {fl} and stir for 1 minute.",1],
+  ["Broth","Pour in {wi} and scrape up the browned bits. Let it bubble and reduce almost completely.",4],
+  ["Broth","Add {st} gradually, then {th}, {bay} and {wo}. Bring to a boil, lower the heat, partly cover and simmer. Remove the bay and thyme stems and season.",28],
+  ["Topping","Heat the grill. Toast {ba} on a tray until crisp."],
+  ["Topping","Ladle the soup into ovenproof bowls, float the toast on top and cover with {gr}. Grill until melted, bubbling and golden. Rest 5 minutes before serving.",3]],
+ hack:["Make it gluten-free.|Skip the flour and use gluten-free bread.","Don’t rush the onions.|If they brown too fast, lower the heat or add a splash of water.","Make it ahead.|The soup tastes even better the next day. Add the toast and cheese and grill just before serving.","More depth.|A dash of Worcestershire or a splash of sherry vinegar at the end lifts the sweetness."]});
 render=function(){
  const r=R[cur];let k=0;
- $("#tabs").innerHTML=R.map((x,i)=>`<button class="tab" aria-pressed="${i==cur}" data-r="${i}">${x.title.split(" with ")[0]}</button>`).join("");
+ $("#tabs").innerHTML=R.map((x,i)=>`<button class="tab" aria-pressed="${i==cur}" data-r="${i}">${x.tab||x.title.split(" with ")[0]}</button>`).join("");
  const big=n>r.base*1.5;
  $("#app").innerHTML=`<article class="pl"><h1>${r.title}</h1><p class="lead">${r.sub}</p>
- <div class="photo"><div class="em">${cur?"🍝":"🍲"}</div><div>Your photo goes here</div></div>
+ <div class="photo"><div>Add a photo of the finished dish</div></div>
  <h2 class="sec">Hack it!</h2><ul class="hk">${r.hack.map(h=>{const[a,b]=h.split("|");return `<li><b>${a}</b> ${b}</li>`}).join("")}</ul>
  <section class="card"><h2 class="ct"><em>The recipe:</em> ${r.title}</h2><p class="sub">${r.sub}</p>
- <div class="btns"><button class="go" id="gocook">Start cooking</button><button class="alt" onclick="window.print()">Print recipe</button></div>
- <div class="meta"><div><span>Servings</span><div class="por">${[2,4,6,8,10].map(p=>`<button class="pb" aria-pressed="${p==n}" data-p="${p}" aria-label="${p} people">${p}</button>`).join("")}</div></div><div><span>Hands-on time</span><b>${hm(r.active)}</b></div><div><span>Total time</span><b>${hm(r.total)}</b></div></div>
+ <div class="btns"><button class="alt" onclick="window.print()">Print recipe</button></div>
+ <div class="meta"><div><span>Servings</span><div class="por">${[2,4,6,8,10].map(p=>`<button class="pb" aria-pressed="${p==n}" data-p="${p}" aria-label="${p} people">${p}</button>`).join("")}</div></div><div><span>Hands-on</span><b>${hm(r.active)}</b></div><div><span>Total</span><b>${hm(r.total)}</b></div><div><span>Steps</span><b>${r.st.length}</b></div></div>
  ${big?`<p class="note">Bigger batch: use a larger pot and wider pans, and cook in batches. Times stay the same, but heating up takes longer.</p>`:""}
- <h3 class="h">Ingredients</h3>${groups(r.ing,x=>x.g).map(([g,l])=>`<h4>For the ${g.toLowerCase()}</h4><ul class="in">${l.map(i=>`<li><b>${amt(i,n,r.base)}</b> ${i.n}${i.e?' <span class="est">(estimate)</span>':""}</li>`).join("")}</ul>`).join("")}
+ <h3 class="h">Ingredients</h3>${groups(r.ing,x=>x.g).map(([g,l])=>`<h4>For the ${g.toLowerCase()}</h4><ul class="in">${l.map(i=>`<li><span class="nm">${i.n}${i.e?' <span class="est">(estimate)</span>':""}</span><b>${amt(i,n,r.base)}</b></li>`).join("")}</ul>`).join("")}
  <h3 class="h">Instructions</h3><ul class="ins">${r.st.map(s=>`<li><b class="sl">Step ${++k}:</b> ${fill(s[1],r)}${s[2]?`<span class="tm">${s[2]} min</span>`:""}</li>`).join("")}</ul>
- <p class="est">~ means start with this amount and adjust to taste.</p></section></article>`;
+ <p class="est">~ means start with this amount and adjust to taste.</p></section></article><div class="dock"><button class="go" id="gocook">Start cooking · ${n} people</button></div>`;
 };
 render();
 </script></body></html>
