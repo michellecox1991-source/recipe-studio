@@ -7,7 +7,7 @@ A single-page recipe app (plain HTML, CSS and JavaScript, no build step).
 - Portion selector for 2, 4, 6, 8 and 10 people, with cooking-friendly rounding
 - Gentler scaling for salt, spices and other strong flavours (marked with ~)
 - Step-by-step cook mode with timers
-- Two sample recipes: roasted chicken, cauliflower and parsnip soup, and Vogelnestjes
+- Five sample recipes: chicken soup, Vogelnestjes, butternut and parsnip soup, fennel and onion soup, French onion soup
 
 ## Planned
 Free-text and PDF recipe parsing, AI recipe improvements (flavour, health, gluten-free, lactose-free, faster), photo studio, shopping list.
