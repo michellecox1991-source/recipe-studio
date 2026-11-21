@@ -241,6 +241,99 @@ h2.ct em{font-style:italic;font-weight:500}
 .sl{background:none;color:var(--acc);padding:0;font-weight:700;margin-right:4px}
 .tm{background:var(--acc2);color:var(--acc);font-weight:600}
 .dock .go{box-shadow:0 8px 20px rgba(200,90,43,.28);font-weight:600}
+/* Earthy and clean: sand, olive, clay, dark brown; calmer layout */
+:root{--bg:#f3eee4;--card:#fbf8f2;--ink:#2f2a22;--mut:#7b7466;--line:#ddd3c1;--acc:#5b6b3a;--acc2:#e6e8d3;--clay:#a65a35;--tom:#5b6b3a;--leaf:#5b6b3a;--mist:#f3eee4;--blush:#fbf8f2}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1a1812;--card:#23201a;--ink:#efe8d9;--mut:#a99f8c;--line:#363125;--acc:#a9b878;--acc2:#32361f;--clay:#d98a61;--tom:#a9b878;--leaf:#a9b878;--mist:#1a1812;--blush:#23201a}}
+:root[data-theme="dark"]{--bg:#1a1812;--card:#23201a;--ink:#efe8d9;--mut:#a99f8c;--line:#363125;--acc:#a9b878;--acc2:#32361f;--clay:#d98a61;--tom:#a9b878;--leaf:#a9b878;--mist:#1a1812;--blush:#23201a}
+.brand{color:var(--acc)}
+.tab[aria-pressed=true]{background:var(--acc);border-color:var(--acc);color:var(--bg)}
+.pl .photo{position:relative;overflow:hidden;cursor:pointer;aspect-ratio:4/3;background:linear-gradient(160deg,var(--acc2),var(--bg));border:0;border-radius:20px}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.pbtn{position:absolute;right:12px;bottom:12px;background:var(--card);color:var(--ink);border-radius:999px;padding:7px 14px;font-size:14px;font-weight:600}
+h2.sec{font-size:24px;margin:36px 0 10px}
+.hk{display:block;list-style:disc;padding-left:20px}
+.hk li{background:none;border:0;border-radius:0;padding:0;margin:8px 0}
+.hk b{display:inline;color:var(--ink);margin:0}
+.card{border:0;background:var(--card);border-radius:20px;padding:28px 22px}
+h2.ct em{color:var(--clay)}
+.meta{grid-template-columns:repeat(3,1fr)}
+.meta>div:not(:first-child){border:0;padding:0;text-align:left}
+.nut{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0 4px;padding:14px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.nut span{display:block;font-size:13px;color:var(--mut);margin-bottom:2px}
+.nut b{font-size:20px;font-weight:600;color:var(--clay)}
+.nut .est{grid-column:1/-1;margin:2px 0 0}
+.pb[aria-pressed=true]{background:var(--acc);color:var(--bg)}
+.card .por{background:var(--bg)}
+.sl{color:var(--clay)}
+.tm{background:var(--acc2);color:var(--acc)}
+.go,.dock .go,.nav .nx,.tbtn{background:var(--acc);color:var(--bg)}
+.dock .go{box-shadow:0 8px 20px rgba(60,50,30,.25)}
+#cook .g{color:var(--clay)}
+/* v2: nav, home, gallery, shopping list, calendar, modal */
+#tabs{display:none}
+.hd{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.sm{padding:7px 14px!important;font-size:14px!important;margin:0!important}
+body,.card,.rc,.tab,.si,.fb,.dy,#md .bx{transition:background-color .25s,color .25s,border-color .25s}
+.nv{margin:12px -18px 22px}
+.hero2{display:grid;gap:22px;margin-bottom:26px}
+@media(min-width:800px){.hero2{grid-template-columns:1fr 1.1fr;align-items:center}}
+.hero2 h1{font-family:Fraunces,Georgia,serif;font-weight:600;font-size:clamp(32px,6vw,52px);line-height:1.08}
+.hero2 .btns{margin:6px 0 0}
+.col{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(2,130px);gap:10px}
+.col .tl:first-child{grid-row:span 2}
+.tl{position:relative;overflow:hidden;border:0;padding:0;border-radius:18px;display:grid;place-items:center;cursor:pointer;color:inherit;background:color-mix(in srgb,hsl(var(--h) 60% 70%) 45%,var(--card))}
+.tl .em{font-size:52px}
+.tl img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+:root[data-theme=dark] .ph{filter:brightness(.92)}
+.ov{position:absolute;left:0;right:0;bottom:0;padding:24px 12px 10px;color:#fff;font-weight:700;font-size:14px;text-align:left;background:linear-gradient(transparent,rgba(0,0,0,.68))}
+.sec2{font-family:Fraunces,Georgia,serif;font-size:22px;margin:22px 0 10px}
+.cc{display:flex;gap:8px;overflow-x:auto;padding:2px 0 12px;scrollbar-width:none}
+@media(min-width:800px){.cc{flex-wrap:wrap;overflow:visible}}
+.cc button{flex:none;border:1px solid var(--line);background:var(--card);border-radius:999px;padding:8px 14px;font-weight:600;font-size:14px}
+.cc button[aria-pressed=true]{background:var(--acc);border-color:var(--acc);color:var(--bg)}
+.fb{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:14px;display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));margin-bottom:14px;align-items:end}
+.fb label{font-size:13px;color:var(--mut);display:grid;gap:4px}
+.fi{font:inherit;padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--ink);width:100%}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.rc{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column}
+.rc .tl{border-radius:0;aspect-ratio:4/3;width:100%}
+.rb{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.rb h3{font-size:18px;color:var(--ink);margin:0;font-family:Fraunces,Georgia,serif}
+.rb .mt{font-size:13px;color:var(--mut);margin:0}
+.rb .row{display:flex;gap:8px;margin-top:auto;padding-top:8px}
+.rb .row button{flex:1}
+.tg{font-size:12px;font-weight:700;color:var(--clay);text-transform:uppercase;letter-spacing:.05em}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+.si{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:12px 14px;background:var(--card);border:1px solid var(--line);border-radius:16px;margin-bottom:8px}
+.si.done .sn{text-decoration:line-through;opacity:.5}
+.si input[type=checkbox]{accent-color:var(--acc);width:20px;height:20px}
+.sn{flex:1;min-width:140px}
+.lnk{background:none;border:0;padding:0;font-weight:700;text-align:left;text-decoration:underline dotted;color:var(--ink)}
+.qty{display:flex;align-items:center;gap:6px}
+.qty button{width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:var(--bg);font-weight:800}
+.qi{width:78px;text-align:center;padding:8px 6px}
+.un{font-size:14px;color:var(--mut);min-width:28px}
+.tr{width:100%;font-size:14px;color:var(--mut);padding:2px 0 0 30px}
+ul.l{list-style:none;padding:0;margin:0}
+details{margin-top:18px}summary{cursor:pointer;font-weight:700}
+.cl2{display:grid;gap:22px}
+@media(min-width:860px){.cl2{grid-template-columns:1.1fr 1fr}}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.dh{text-align:center;font-size:12px;color:var(--mut)}
+.dy{aspect-ratio:1;border:1px solid var(--line);background:var(--card);border-radius:12px;position:relative;font-weight:600;padding:0}
+.dy.sel{background:var(--acc);color:var(--bg);border-color:var(--acc)}
+.dy.td{outline:2px solid var(--clay);outline-offset:-2px}
+.dt{position:absolute;bottom:2px;left:0;right:0;font-size:14px;line-height:1;color:var(--clay)}
+.dy.sel .dt{color:var(--bg)}
+.mh{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.mh h2{margin:0;font-size:22px}
+.mc{font-size:12px;font-weight:700;background:var(--acc2);color:var(--acc);border-radius:999px;padding:3px 10px}
+#md{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;place-items:center;z-index:30;padding:18px}
+#md.on{display:grid}
+#md .bx{background:var(--card);color:var(--ink);border-radius:20px;padding:22px;max-width:540px;width:100%;max-height:86vh;overflow:auto}
+#md h3{color:var(--ink);margin:0 0 8px;font-size:22px}
+.pv{max-width:100%;border-radius:14px;margin:8px 0}
+.emp{text-align:center;padding:36px 12px;color:var(--mut)}
 </style></head>
 <body><div class="wrap">
 <div class="brand">Recipe Studio</div>
@@ -432,20 +525,173 @@ R.push({title:"Cuckoo’s nest bowl with wild grains, greens and poached egg",ta
   ["To serve","Toss the warm grains with the greens and half of the chermoula. Mix {lb} with {he}."],
   ["To serve","Pile into bowls. Rest a nest on top, crack an egg into it, and add the herbed labneh, {al} and the rest of the chermoula."]],
  hack:["No water bath?|Use a soft-boiled or poached egg instead, about 6 minutes.","Make it gluten-free.|Make the nest from grated, squeezed potato fried or baked until crisp.","Activated almonds.|Soak almonds in salted water for 8–12 hours, drain, dry and roast.","Save time.|Use ready-cooked grain pouches and shop-bought chermoula."]});
+const NU=[[700,55],[1050,50],[450,7],[370,10],[470,17],[550,17],[900,30],[850,30]];NU.forEach((v,i)=>{R[i].kcal=v[0];R[i].pr=v[1]});
+const phm={};
+const getPh=()=>{if(phm[cur])return phm[cur];try{return localStorage.getItem("rsph:"+R[cur].title)}catch(_){return null}};
+function setPh(f){const rd=new FileReader();rd.onload=()=>{const im=new Image();im.onload=()=>{const s=Math.min(1,1000/Math.max(im.width,im.height)),c=document.createElement("canvas");c.width=Math.round(im.width*s);c.height=Math.round(im.height*s);c.getContext("2d").drawImage(im,0,0,c.width,c.height);const u=c.toDataURL("image/jpeg",.82);phm[cur]=u;try{localStorage.setItem("rsph:"+R[cur].title,u)}catch(_){}render()};im.src=rd.result};rd.readAsDataURL(f)}
+document.addEventListener("change",e=>{if(e.target.id=="pf"&&e.target.files[0])setPh(e.target.files[0])});
 render=function(){
  const r=R[cur];let k=0;
  $("#tabs").innerHTML=R.map((x,i)=>`<button class="tab" aria-pressed="${i==cur}" data-r="${i}">${x.tab||x.title.split(" with ")[0]}</button>`).join("");
  const big=n>r.base*1.5;
  $("#app").innerHTML=`<article class="pl"><h1>${r.title}</h1><p class="lead">${r.sub}</p>
- <div class="photo"><div>Add a photo of the finished dish</div></div>
+ <label class="photo">${(()=>{const u=getPh();return (u?`<img src="${u}" alt="">`:`<div>Add a photo of the finished dish</div>`)+`<span class="pbtn">${u?"Change photo":"Add photo"}</span>`})()}<input type="file" accept="image/*" id="pf" hidden></label>
  <h2 class="sec">Hack it!</h2><ul class="hk">${r.hack.map(h=>{const[a,b]=h.split("|");return `<li><b>${a}</b> ${b}</li>`}).join("")}</ul>
  <section class="card"><h2 class="ct"><em>The recipe:</em> ${r.title}</h2><p class="sub">${r.sub}</p>
  <div class="btns"><button class="alt" onclick="window.print()">Print recipe</button></div>
  <div class="meta"><div><span>Servings</span><div class="por">${[2,4,6,8,10].map(p=>`<button class="pb" aria-pressed="${p==n}" data-p="${p}" aria-label="${p} people">${p}</button>`).join("")}</div></div><div><span>Hands-on</span><b>${hm(r.active)}</b></div><div><span>Total</span><b>${hm(r.total)}</b></div><div><span>Steps</span><b>${r.st.length}</b></div></div>
+ <div class="nut"><div><span>Calories per portion</span><b>~${r.kcal} kcal</b></div><div><span>Protein per portion</span><b>~${r.pr} g</b></div><p class="est">Rough estimates per portion, calculated from the recipe as written. They do not change with the number of people, and they are not medical advice.</p></div>
  ${big?`<p class="note">Bigger batch: use a larger pot and wider pans, and cook in batches. Times stay the same, but heating up takes longer.</p>`:""}
  <h3 class="h">Ingredients</h3>${groups(r.ing,x=>x.g).map(([g,l])=>`<h4>For the ${g.toLowerCase()}</h4><ul class="in">${l.map(i=>`<li><span class="nm">${i.n}${i.e?' <span class="est">(estimate)</span>':""}</span><b>${amt(i,n,r.base)}</b></li>`).join("")}</ul>`).join("")}
  <h3 class="h">Instructions</h3><ul class="ins">${r.st.map(s=>`<li><b class="sl">Step ${++k}:</b> ${fill(s[1],r)}${s[2]?`<span class="tm">${s[2]} min</span>`:""}</li>`).join("")}</ul>
  <p class="est">~ means start with this amount and adjust to taste.</p></section></article><div class="dock"><button class="go" id="gocook">Start cooking · ${n} people</button></div>`;
 };
 render();
+</script>
+<script>
+// Recipe Studio v2: theme, home gallery + filters, shopping list, meal calendar
+const MT=["Breakfast","Lunch","Dinner","Snack"];
+const CATS=["Soups","Pasta","Salads","Main Courses","Desserts","Breakfast","Vegetarian","Vegan","Seafood","Meat","Healthy","Quick Meals"];
+const TAG=[["Soups","Meat","Healthy"],["Pasta","Main Courses","Meat"],["Soups","Vegetarian","Healthy"],["Soups","Vegetarian"],["Soups","Meat"],["Salads","Vegetarian","Healthy","Main Courses"],["Breakfast","Vegetarian"],["Main Courses","Vegetarian","Healthy"]];
+const EMO=["🍲","🍝","🎃","🥣","🧅","🥗","🍳","🥘"];
+const BANDS=[["Under 300",0,300],["300-500",300,500],["500-700",500,700],["700-1000",700,1000],["1000+",1000,1e9]];
+// ---- Ingredient standard: no coriander / cilantro anywhere
+R.forEach((r,i)=>{
+ const rm=[];
+ r.ing.forEach(x=>{if(/coriander|cilantro/i.test(x.n)){if(/^parsley, coriander and mint/i.test(x.n))x.n="parsley and mint leaves";else rm.push(x.id)}});
+ r.ing=r.ing.filter(x=>!rm.includes(x.id));
+ r.st.forEach(s=>rm.forEach(id=>{s[1]=s[1].replace(new RegExp("(,|\\s+and)?\\s*\\{"+id+"\\}"),"")}));
+ r.cats=[...(TAG[i]||[])];if(r.total<=60)r.cats.push("Quick Meals");
+});
+// ---- Storage helpers (every access guarded)
+const ld=(k,d)=>{try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(_){return d}};
+const sv=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(_){}};
+let plan=ld("rs-plan",[]),shop=Object.assign({have:{},ov:{},done:{},man:[]},ld("rs-shop",{}));
+const save=()=>{sv("rs-plan",plan);sv("rs-shop",shop)};
+const now=new Date();
+const S={view:"home",cat:"",q:"",ing:"",kc:"",mo:{y:now.getFullYear(),m:now.getMonth()},sel:null,open:{},pr:0,pm:"Dinner",pp:4};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const pad=x=>String(x).padStart(2,"0"),iso=d=>d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate());
+const cap=s=>s?s[0].toUpperCase()+s.slice(1):s;
+const dl=d=>new Date(d+"T12:00").toLocaleDateString(undefined,{weekday:"short",day:"numeric",month:"short"});
+const rnd=(v,u)=>u=="g"||u=="ml"?Math.max(5,Math.round(v/5)*5):(u=="tsp"||u=="tbsp")?Math.max(.25,Math.round(v*4)/4):Math.max(1,Math.ceil(v-1e-9));
+const fq=(v,u)=>(+v.toFixed(2))+(u&&u!="pc"?" "+u:"");
+const stp=u=>u=="g"||u=="ml"?50:(u=="tsp"||u=="tbsp")?.5:1;
+const ph=i=>phm[i]||(()=>{try{return localStorage.getItem("rsph:"+R[i].title)}catch(_){return null}})();
+// ---- Theme
+const isDark=()=>(document.documentElement.dataset.theme||(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"))=="dark";
+function themeUI(){const b=$("#th");if(b)b.textContent=isDark()?"☀️ Light":"🌙 Dark"}
+function toggleTheme(){const t=isDark()?"light":"dark";document.documentElement.dataset.theme=t;sv("rs-theme",t);themeUI()}
+{const t=ld("rs-theme",null);if(t)document.documentElement.dataset.theme=t}
+// ---- Modal
+let pend=null;
+function modal(h){const m=$("#md");m.querySelector(".bx").innerHTML=h;m.classList.add("on");const b=m.querySelector("button");if(b)b.focus()}
+const closeM=()=>$("#md").classList.remove("on");
+// ---- Views
+const render0=render;
+render=function(){draw()};
+function tile(i,ov){const u=ph(i),r=R[i];return `<button class="tl" data-open="${i}" style="--h:${i*47%360}" aria-label="Open ${esc(r.title)}">${u?`<img class="ph" src="${u}" alt="">`:`<span class="em" aria-hidden="true">${EMO[i]||"🍽️"}</span>`}${ov?`<span class="ov">${r.tab||r.title}</span>`:""}</button>`}
+function homeView(){
+ const pop=[5,2,4,7].filter(i=>R[i]);
+ return `<section class="hero2"><div><h1>Cook, plan and shop in one place.</h1><p class="sub">Browse ${R.length} recipes, plan only the dates you choose and let your shopping list build itself.</p><div class="btns"><button class="go" data-nav="cal">Plan meals</button><button class="alt" data-nav="shop">Shopping list</button></div></div>
+ <div><div class="est" style="margin-bottom:6px">Popular dishes</div><div class="col">${pop.map(i=>tile(i,1)).join("")}</div></div></section>
+ <h2 class="sec2">Browse by category</h2><div class="cc" id="cc">${CATS.map(c=>`<button data-cat="${c}" aria-pressed="${S.cat==c}">${c}</button>`).join("")}</div>
+ <div class="fb"><label>Recipe name<input class="fi" data-f="q" value="${esc(S.q)}" placeholder="e.g. Lasagna"></label>
+ <label>Ingredients (comma separated)<input class="fi" data-f="ing" value="${esc(S.ing)}" placeholder="e.g. chicken, tomato"></label>
+ <label>Category<select class="fi" data-f="cat"><option value="">All categories</option>${CATS.map(c=>`<option ${S.cat==c?"selected":""}>${c}</option>`).join("")}</select></label>
+ <label>Calories per person<select class="fi" data-f="kc"><option value="">Any</option>${BANDS.map((b,i)=>`<option value="${i}" ${S.kc==i&&S.kc!==""?"selected":""}>${b[0]} kcal</option>`).join("")}</select></label>
+ <button class="alt sm" data-act="clr">Clear filters</button></div>
+ <p class="est" id="cnt" aria-live="polite"></p><div class="grid" id="gal"></div>`}
+function gal(){
+ const q=S.q.trim().toLowerCase(),terms=S.ing.toLowerCase().split(/[,;]+/).map(s=>s.trim()).filter(Boolean),b=BANDS[S.kc];
+ const ids=R.map((_,i)=>i).filter(i=>{const r=R[i];return(!q||(r.title+" "+(r.tab||"")).toLowerCase().includes(q))&&terms.every(t=>r.ing.some(x=>x.n.toLowerCase().includes(t)))&&(!S.cat||r.cats.includes(S.cat))&&(S.kc===""||(r.kcal>=b[1]&&r.kcal<b[2]))});
+ $("#cnt").textContent=ids.length+" of "+R.length+" recipes";
+ document.querySelectorAll("#cc button").forEach(x=>x.setAttribute("aria-pressed",x.dataset.cat==S.cat));
+ $("#gal").innerHTML=ids.length?ids.map(i=>{const r=R[i];return `<article class="rc">${tile(i)}<div class="rb"><span class="tg">${r.cats[0]}</span><h3>${r.title}</h3><p class="mt">Prep ${hm(r.active)} · Total ${hm(r.total)}<br>Serves ${r.base} · ~${r.kcal} kcal per person</p><div class="row"><button class="alt sm" data-quick="${i}">Quick view</button><button class="go sm" data-open="${i}">Open</button></div></div></article>`}).join(""):`<div class="emp" style="grid-column:1/-1">No recipes match these filters yet.<br>Try removing a filter.</div>`}
+function quick(i){const r=R[i];modal(`<h3>${r.title}</h3><p class="est">${r.sub}</p><p><b>${hm(r.active)}</b> hands-on · <b>${hm(r.total)}</b> total · serves <b>${r.base}</b> · ~${r.kcal} kcal per person</p><h4>Ingredients (for ${r.base})</h4><ul class="in">${r.ing.map(x=>`<li><span class="nm">${esc(x.n)}</span><b>${amt(x,r.base,r.base)}</b></li>`).join("")}</ul><div class="btns"><button class="go" data-open="${i}">Open recipe</button><button class="alt" data-act="x">Close</button></div>`)}
+function openR(i){closeM();cur=i;n=R[i].base>=6?6:4;S.view="recipe";draw(1)}
+// ---- Shopping list (derived from the meal plan)
+function lines(){
+ const m={};
+ plan.forEach(p=>{const r=R[p.r];if(!r)return;const lin=p.p/r.base,sf=lin>1?1+(lin-1)*.75:1-(1-lin)*.75;
+  r.ing.forEach(i=>{const nm=i.n.split(",")[0].replace(/\(.*?\)/g,"").trim().toLowerCase(),fx=i.a==null,u=fx?"":i.u,key=nm+"|"+u;
+   const e=m[key]||(m[key]={key,nm,u,fx,t:0,from:[],txt:fx?i.u:""});
+   const v=fx?null:i.a*(i.s=="s"?sf:lin);if(!fx)e.t+=v;
+   e.from.push({t:r.tab||r.title,p:p.p,v,d:p.d,u,txt:i.u})})});
+ return Object.values(m).map(e=>(e.t=e.fx?0:rnd(e.t,e.u),e)).sort((a,b)=>a.nm.localeCompare(b.nm))}
+const qty=(key,q,u)=>`<div class="qty"><button data-act="dec" data-key="${esc(key)}" aria-label="Decrease">−</button><input class="fi qi" type="number" min="0" step="any" value="${q}" data-qk="${esc(key)}" aria-label="Quantity"><span class="un">${u=="pc"?"pcs":esc(u||"")}</span><button data-act="inc" data-key="${esc(key)}" aria-label="Increase">+</button></div>`;
+function shopView(){
+ const L=lines(),act=L.filter(e=>!shop.have[e.key]),home=L.filter(e=>shop.have[e.key]);
+ const row=e=>{const ed=shop.ov[e.key]!=null,q=ed?shop.ov[e.key]:e.t,op=S.open[e.key],k=esc(e.key);
+  return `<li class="si ${shop.done[e.key]?"done":""}"><input type="checkbox" data-sc="${k}" ${shop.done[e.key]?"checked":""} aria-label="Bought ${esc(e.nm)}"><div class="sn"><button class="lnk" data-act="trace" data-key="${k}" aria-expanded="${!!op}">${esc(cap(e.nm))}</button>${ed?` <span class="est">(edited) <button class="lnk" data-act="reset" data-key="${k}">reset</button></span>`:""}${e.fx?` <span class="est">(${esc(e.txt)})</span>`:""}</div>${e.fx?"":qty(e.key,q,e.u)}<button class="alt sm" data-act="have" data-key="${k}">Have it</button>${op?`<div class="tr"><b>Used for:</b><br>${e.from.map(f=>`${esc(f.t)} (${f.p} servings, ${dl(f.d)}): ${f.v==null?esc(f.txt):fq(rnd(f.v,f.u),f.u)}`).join("<br>")}</div>`:""}</li>`};
+ const man=m=>`<li class="si ${shop.done["m:"+m.id]?"done":""}"><input type="checkbox" data-sc="m:${m.id}" ${shop.done["m:"+m.id]?"checked":""} aria-label="Bought ${esc(m.name)}"><div class="sn"><b>${esc(m.name)}</b> <span class="est">Added by you${m.note?" · "+esc(m.note):""}</span></div>${m.q!=null?qty("m:"+m.id,m.q,m.u):""}<button class="alt sm" data-act="delm" data-key="${m.id}">Remove</button></li>`;
+ return `<h2>Shopping list</h2><p class="est">Built automatically from ${plan.length} planned meal${plan.length==1?"":"s"}. Duplicates are combined and amounts follow the servings you chose. Tap an ingredient to see where it is used.</p>
+ <div class="fb"><label>Item<input class="fi" id="mn" placeholder="e.g. Milk"></label><label>Quantity<input class="fi" id="mq" type="number" min="0" step="any" placeholder="2"></label><label>Unit<input class="fi" id="mu" placeholder="litres"></label><label>Note<input class="fi" id="mt" placeholder="optional"></label><button class="go sm" data-act="addm">Add item</button></div>
+ ${act.length||shop.man.length?`<ul class="l">${shop.man.map(man).join("")}${act.map(row).join("")}</ul>`:`<div class="emp">Your list is empty.<br>Plan meals in the calendar and the ingredients appear here.<div class="btns" style="justify-content:center"><button class="go" data-nav="cal">Open Meal Calendar</button></div></div>`}
+ ${home.length?`<details><summary>Already at home (${home.length})</summary><ul class="l" style="margin-top:10px">${home.map(e=>`<li class="si"><div class="sn">${esc(cap(e.nm))}</div><button class="alt sm" data-act="unhave" data-key="${esc(e.key)}">Put back on list</button></li>`).join("")}</ul></details>`:""}`}
+// ---- Meal calendar
+function calView(){
+ const {y,m}=S.mo,off=(new Date(y,m,1).getDay()+6)%7,dim=new Date(y,m+1,0).getDate(),td=iso(now);
+ let cells=["Mo","Tu","We","Th","Fr","Sa","Su"].map(x=>`<div class="dh">${x}</div>`).join("")+"<span></span>".repeat(off);
+ for(let d=1;d<=dim;d++){const k=y+"-"+pad(m+1)+"-"+pad(d),c=plan.filter(p=>p.d==k).length;cells+=`<button class="dy ${k==S.sel?"sel":""} ${k==td?"td":""}" data-day="${k}" aria-label="${dl(k)}, ${c} planned">${d}${c?`<span class="dt">${"•".repeat(Math.min(c,3))}</span>`:""}</button>`}
+ const opt=(a,v)=>a.map(x=>`<option ${x==v?"selected":""}>${x}</option>`).join(""),people=[1,2,3,4,5,6,7,8,9,10,11,12];
+ const day=S.sel?plan.filter(p=>p.d==S.sel).sort((a,b)=>MT.indexOf(a.m)-MT.indexOf(b.m)):[];
+ const side=!S.sel?`<p class="est">Pick a date to plan. Only the dates you choose are planned.</p>`:`<h3 style="margin-top:0">${dl(S.sel)}</h3>${day.length?`<ul class="l">${day.map(p=>`<li class="si"><span class="mc">${p.m}</span><div class="sn"><b>${R[p.r].tab||R[p.r].title}</b></div><label class="est">People <select class="fi" style="width:auto" data-pp="${p.id}">${opt(people,p.p)}</select></label><button class="alt sm" data-act="del" data-key="${p.id}">Remove</button></li>`).join("")}</ul>`:`<p class="est">Nothing planned for this date yet.</p>`}
+ <div class="fb"><label>Meal<select class="fi" data-ps="pm">${opt(MT,S.pm)}</select></label><label>Recipe<select class="fi" data-ps="pr">${R.map((r,i)=>`<option value="${i}" ${i==S.pr?"selected":""}>${r.tab||r.title}</option>`).join("")}</select></label><label>People<select class="fi" data-ps="pp">${opt(people,S.pp)}</select></label><button class="go sm" data-act="add">Add to plan</button></div><p class="est">Ingredients scale to the people count and join your shopping list automatically.</p>`;
+ return `<h2>Meal calendar</h2><div class="cl2"><div><div class="mh"><button class="alt sm" data-act="mo" data-key="-1" aria-label="Previous month">‹</button><h2>${new Date(y,m,1).toLocaleDateString(undefined,{month:"long",year:"numeric"})}</h2><button class="alt sm" data-act="mo" data-key="1" aria-label="Next month">›</button></div><div class="cal">${cells}</div></div><div>${side}</div></div>`}
+// ---- Router
+function draw(top){
+ document.querySelectorAll("#nv .tab").forEach(b=>{const v=b.dataset.nav;b.setAttribute("aria-pressed",v==(S.view=="recipe"?"home":S.view))});
+ const sb=$("#nv [data-nav=shop]");if(sb){const c=lines().filter(e=>!shop.have[e.key]).length+shop.man.length;sb.textContent="Shopping List"+(c?" ("+c+")":"")}
+ const a=$("#app");
+ if(S.view=="recipe"){render0();const b=$(".pbtn");if(b)b.textContent=ph(cur)?"Change recipe image":"Add recipe image";a.insertAdjacentHTML("afterbegin",`<div class="pl row" style="margin-bottom:12px"><button class="alt sm" data-nav="home">← All recipes</button><button class="alt sm" data-act="planit">Plan this meal</button></div>`)}
+ else a.innerHTML=S.view=="shop"?shopView():S.view=="cal"?calView():homeView();
+ if(S.view=="home")gal();
+ if(top)scrollTo(0,0)}
+// ---- Image replace with preview before saving
+const setPh0=setPh;
+setPh=function(f){pend=f;modal(`<h3>Preview new image</h3><img class="pv" src="${URL.createObjectURL(f)}" alt="Preview"><div class="btns"><button class="go" data-act="savephoto">Save image</button><button class="alt" data-act="x">Cancel</button></div>`)};
+// ---- Events
+function setQ(key,v){v=Math.max(0,+(+v).toFixed(2));if(isNaN(v))return;if(key.startsWith("m:")){const x=shop.man.find(m=>"m:"+m.id==key);if(x)x.q=v}else shop.ov[key]=v}
+function curQ(key){if(key.startsWith("m:"))return(shop.man.find(m=>"m:"+m.id==key)||{}).q||0;const e=lines().find(l=>l.key==key);return shop.ov[key]!=null?shop.ov[key]:e?e.t:0}
+function unitOf(key){if(key.startsWith("m:"))return(shop.man.find(m=>"m:"+m.id==key)||{}).u;return key.split("|")[1]}
+document.addEventListener("click",e=>{
+ const t=e.target.closest("[data-act],[data-open],[data-quick],[data-cat],[data-day],[data-nav],#md");if(!t)return;const d=t.dataset;
+ if(t.id=="md"){if(e.target===t)closeM();return}
+ if(d.nav){S.view=d.nav;draw(1)}
+ else if(d.open!=null)openR(+d.open);
+ else if(d.quick!=null)quick(+d.quick);
+ else if(d.cat){S.cat=S.cat==d.cat?"":d.cat;const s=$("[data-f=cat]");if(s)s.value=S.cat;gal()}
+ else if(d.day){S.sel=d.day;draw()}
+ else{const a=d.act,k=d.key;
+  if(a=="x")closeM();
+  else if(a=="savephoto"){closeM();if(pend)setPh0(pend)}
+  else if(a=="theme")toggleTheme();
+  else if(a=="home"){S.view="home";draw(1)}
+  else if(a=="planit"){S.pr=cur;S.view="cal";draw(1)}
+  else if(a=="clr"){S.q=S.ing=S.cat=S.kc="";draw()}
+  else{
+   if(a=="trace")S.open[k]=!S.open[k];
+   else if(a=="have")shop.have[k]=true;
+   else if(a=="unhave")delete shop.have[k];
+   else if(a=="inc"||a=="dec")setQ(k,curQ(k)+(a=="inc"?1:-1)*stp(unitOf(k)));
+   else if(a=="reset")delete shop.ov[k];
+   else if(a=="delm")shop.man=shop.man.filter(m=>m.id!=k);
+   else if(a=="addm"){const nm=$("#mn").value.trim();if(!nm){$("#mn").focus();return}const q=$("#mq").value;shop.man.push({id:Date.now(),name:nm,q:q===""?null:+q,u:$("#mu").value.trim(),note:$("#mt").value.trim()})}
+   else if(a=="add"){if(!S.sel)return;plan.push({id:Date.now(),d:S.sel,r:+S.pr,m:S.pm,p:+S.pp})}
+   else if(a=="del")plan=plan.filter(p=>p.id!=k);
+   else if(a=="mo"){let{y,m}=S.mo;m+=+k;if(m<0){m=11;y--}if(m>11){m=0;y++}S.mo={y,m}}
+   save();draw()}}
+});
+document.addEventListener("input",e=>{const f=e.target.dataset.f;if(!f)return;S[f]=e.target.value;gal()});
+document.addEventListener("change",e=>{const t=e.target,d=t.dataset;
+ if(d.sc!=null){shop.done[d.sc]=t.checked;save();draw()}
+ else if(d.qk){setQ(d.qk,t.value);save();draw()}
+ else if(d.pp){const p=plan.find(x=>x.id==d.pp);if(p)p.p=+t.value;save();draw()}
+ else if(d.ps)S[d.ps]=d.ps=="pm"?t.value:+t.value});
+document.addEventListener("keydown",e=>{if(e.key=="Escape")closeM()});
+// ---- Init
+$(".brand").outerHTML=`<header class="hd"><div class="brand">Recipe Studio</div><button class="alt sm" id="th" data-act="theme" aria-label="Switch between light and dark mode"></button></header><nav class="tabs nv" id="nv" aria-label="Main"><button class="tab" data-nav="home">Recipes</button><button class="tab" data-nav="shop">Shopping List</button><button class="tab" data-nav="cal">Meal Calendar</button></nav>`;
+document.body.insertAdjacentHTML("beforeend",`<div id="md" role="dialog" aria-modal="true"><div class="bx"></div></div>`);
+themeUI();draw();
 </script></body></html>
