@@ -333,6 +333,7 @@ details{margin-top:18px}summary{cursor:pointer;font-weight:700}
 #md .bx{background:var(--card);color:var(--ink);border-radius:20px;padding:22px;max-width:540px;width:100%;max-height:86vh;overflow:auto}
 #md h3{color:var(--ink);margin:0 0 8px;font-size:22px}
 .pv{max-width:100%;border-radius:14px;margin:8px 0}
+.cg{margin-top:28px}.cat{font-family:Fraunces,Georgia,serif;font-size:19px;color:var(--ink);margin:0 0 10px;padding-bottom:6px;border-bottom:2px solid var(--line)}
 .emp{text-align:center;padding:36px 12px;color:var(--mut)}
 </style></head>
 <body><div class="wrap">
@@ -347,7 +348,7 @@ const I=(id,n,a,u,s,g,e)=>({id,n,a,u,s,g,e});
 const R=[{
  title:"Roasted chicken, cauliflower & parsnip soup",sub:"With black lentils, mushrooms and small meatballs. Chicken and stock are made the day before.",base:6,active:195,total:330,
  ing:[
-  I("chk","bone-in chicken thighs & drumsticks",1500,"g","l","Chicken"),I("but","butter",100,"g","l","Chicken"),I("gar","head garlic, unpeeled",1,"pc","l","Chicken"),I("bay","bay leaves",3,"pc","s","Chicken"),I("ros","rosemary",5,"sprig","s","Chicken"),I("wine","white wine",100,"ml","l","Chicken",1),I("hon","honey",1,"tbsp","l","Chicken"),I("pap","smoked paprika",1,"tsp","s","Chicken"),I("chi","chilli flakes",.5,"tsp","s","Chicken"),I("caj","cajun seasoning",1,"tsp","s","Chicken"),
+  I("chk","bone-in chicken thighs & drumsticks",1500,"g","l","Chicken"),I("but","butter",100,"g","l","Chicken"),I("gar","garlic cloves, from 1 whole head, unpeeled",10,"pc","l","Chicken"),I("bay","bay leaves",3,"pc","s","Chicken"),I("ros","rosemary",5,"sprig","s","Chicken"),I("wine","white wine",100,"ml","l","Chicken",1),I("hon","honey",1,"tbsp","l","Chicken"),I("pap","smoked paprika",1,"tsp","s","Chicken"),I("chi","chilli flakes",.5,"tsp","s","Chicken"),I("caj","cajun seasoning",1,"tsp","s","Chicken"),
   I("wat","cold water, bones from the chicken, 1 tbsp vinegar",2500,"ml","l","Stock"),
   I("oni","brown onions",4,"pc","l","Soup base"),I("bb","butter",40,"g","l","Soup base"),I("clo","cloves",4,"pc","s","Soup base"),I("pot","potato, peeled and cubed",200,"g","l","Soup base",1),I("stk","chicken stock",1500,"ml","l","Soup base"),
   I("cau","cauliflower",500,"g","l","Roasted vegetables"),I("par","parsnips",400,"g","l","Roasted vegetables",1),I("cum","cumin seeds",1,"tsp","s","Roasted vegetables"),I("cor","coriander seeds",1,"tsp","s","Roasted vegetables"),I("tur","turmeric",.5,"tsp","s","Roasted vegetables"),I("oil","oil",2,"tbsp","l","Roasted vegetables"),
@@ -359,11 +360,11 @@ const R=[{
   ["Chicken","Heat the oven to 220 °C. Make a bed of {ros}, {bay} and {gar} in a tray. Rub {but} under and over the skin."],
   ["Chicken","Roast 15 minutes at 220 °C, then lower to 180 °C. Add {wine} to the tray, not over the chicken. Baste every 20 minutes.",15],
   ["Chicken","In the last 15 minutes brush with melted tray butter, {hon}, {pap}, {chi} and {caj}.",15],
-  ["Chicken","Roast until the thigh reaches 80–85 °C. Rest 15 minutes, pull the meat and keep the juices, butter and soft garlic."],
+  ["Chicken","Roast until the thigh reaches 80–85 °C. Rest 15 minutes, pull the meat and keep the juices, butter and soft garlic cloves."],
   ["Stock","Put the bones in a pot with {wat}. Heat slowly and skim the foam at 70–85 °C."],
   ["Stock","Simmer at 88–95 °C for 2–3 hours, never a rolling boil. Strain, cool below 5 °C within 2 hours and lift off the fat.",150],
   ["Soup base","Caramelise {oni} in {bb} on low heat, stirring often.",40],
-  ["Soup base","Add {clo}, the roasted garlic, 2–3 tbsp tray butter and juices, {stk} and {pot}. Simmer, then remove cloves and bay.",20],
+  ["Soup base","Add {clo}, the roasted garlic cloves, 2–3 tbsp tray butter and juices, {stk} and {pot}. Simmer, then remove cloves and bay.",20],
   ["Roasted vegetables","Toast and crush {cum} and {cor}. Toss {cau} and {par} with {tur}, {oil} and salt. Roast at 220 °C, then grill the last 3–5 minutes.",28],
   ["Roasted vegetables","Add to the pot, simmer 10 minutes, then blend with a stick blender until smooth.",10],
   ["Meatballs","Mix {pork} and {beef} with {bre}, salt, pepper and paprika. Roll 2 cm balls and bake at 200 °C.",13],
@@ -375,7 +376,7 @@ const R=[{
  title:"Vogelnestjes with creamy tomato sauce",sub:"Meatballs around a boiled egg, glazed vegetables and pasta. The original amounts are estimates, so cook by feel.",base:4,active:40,total:70,
  ing:[
   I("pork","minced pork",100,"g","l","Meatballs"),I("veal","minced veal",200,"g","l","Meatballs"),I("beef","minced beef",200,"g","l","Meatballs"),I("egg","raw egg",1,"pc","l","Meatballs"),I("parm","grated parmesan",4,"tbsp","l","Meatballs",1),I("pep","black pepper",null,"pinch","t","Meatballs"),I("bre","breadcrumbs, added until it rolls",null,"as needed","t","Meatballs"),I("heg","hard-boiled eggs, peeled",6,"pc","l","Meatballs"),
-  I("but1","butter",20,"g","l","Creamy tomato sauce",1),I("on1","brown onion, finely diced",1,"pc","l","Creamy tomato sauce"),I("gar","garlic cloves, centre removed",5,"clove","s","Creamy tomato sauce"),I("tp","tomato paste",2,"tbsp","l","Creamy tomato sauce",1),I("cr","cooking cream",200,"ml","l","Creamy tomato sauce",1),I("tik","tikka masala paste",1,"tsp","s","Creamy tomato sauce"),
+  I("but1","butter",20,"g","l","Creamy tomato sauce",1),I("on1","brown onion, finely diced",1,"pc","l","Creamy tomato sauce"),I("gar","garlic cloves, centre removed",5,"pc","s","Creamy tomato sauce"),I("tp","tomato paste",2,"tbsp","l","Creamy tomato sauce",1),I("cr","cooking cream",200,"ml","l","Creamy tomato sauce",1),I("tik","tikka masala paste",1,"tsp","s","Creamy tomato sauce"),
   I("but2","butter",20,"g","l","Vegetables",1),I("ro","red onions, in strips",3,"pc","l","Vegetables"),I("car","carrots, in batons",3,"pc","l","Vegetables",1),I("cap","capsicums, in strips",4,"pc","l","Vegetables"),I("cou","courgette, seeds removed, in batons",1,"pc","l","Vegetables"),I("spc","paprika, chilli and cayenne powder",1,"tsp","s","Vegetables",1),I("hon","honey",3,"tbsp","l","Vegetables"),
   I("pas","rigatoni, penne or tortiglioni",400,"g","l","Pasta",1),I("thy","thyme, pepper, salt, olive oil",null,"to taste","t","Pasta")],
  st:[
@@ -451,19 +452,19 @@ R[0].hack=["Make it gluten-free.|Use gluten-free breadcrumbs or oats in the meat
 R[1].hack=["Make it gluten-free.|Use gluten-free breadcrumbs and pasta.","Make it lactose-free.|Use lactose-free cream and a hard, naturally low-lactose cheese.","Softer yolks.|Boil the eggs for 7–8 minutes instead of a full hard boil.","Make it ahead.|Make the sauce and vegetables a day early and warm them gently."];
 R[0].tab="Chicken soup";R[1].tab="Vogelnestjes";
 R.push({title:"Roasted butternut, parsnip & caramelised onion soup",tab:"Butternut & parsnip",sub:"Roasted squash and parsnip, slowly caramelised onions and a little chilli, finished with a splash of acid.",base:4,active:40,total:100,
- ing:[I("sq","butternut squash, peeled and cubed in 4 cm chunks",1000,"g","l","Sheet-pan roast"),I("pa","parsnips, peeled and chopped",2,"pc","l","Sheet-pan roast"),I("po","potato, peeled and cut in similar-sized chunks (for a thicker soup)",300,"g","l","Sheet-pan roast",1),I("gh","head of garlic, top sliced off, wrapped in foil",1,"pc","l","Sheet-pan roast"),I("o1","extra-virgin olive oil",2,"tbsp","l","Sheet-pan roast"),I("ms","maple syrup or honey (optional)",1,"tsp","l","Sheet-pan roast"),
+ ing:[I("sq","butternut squash, peeled and cubed in 4 cm chunks",1000,"g","l","Sheet-pan roast"),I("pa","parsnips, peeled and chopped",2,"pc","l","Sheet-pan roast"),I("po","potato, peeled and cut in similar-sized chunks (for a thicker soup)",300,"g","l","Sheet-pan roast",1),I("gh","garlic cloves, from 1 whole head, top sliced off, wrapped in foil",10,"pc","l","Sheet-pan roast"),I("o1","extra-virgin olive oil",2,"tbsp","l","Sheet-pan roast"),I("ms","maple syrup or honey (optional)",1,"tsp","l","Sheet-pan roast"),
   I("on","large onions, thinly sliced",2,"pc","l","Onions & aromatics"),I("o2","olive oil",1,"tbsp","l","Onions & aromatics"),I("bu","butter",1,"tbsp","l","Onions & aromatics"),I("ch","fresh red or green chillies, finely chopped",1.5,"pc","s","Onions & aromatics"),I("sp","smoked paprika or a pinch of nutmeg (optional)",.5,"tsp","s","Onions & aromatics"),
   I("st","warm vegetable or chicken stock",750,"ml","l","Liquid & finish"),I("cr","cream, coconut milk or crème fraîche (optional)",125,"ml","l","Liquid & finish"),I("ac","balsamic vinegar or lemon juice",1,"tsp","s","Liquid & finish")],
  st:[["Sheet-pan roast","Heat the oven to 200 °C. Toss {sq}, {pa} and {po} with {o1}, {ms}, salt and pepper on a large tray. Put the {gh} in a corner."],
   ["Sheet-pan roast","Roast, tossing halfway, until fork-tender and deeply golden at the edges.",40],
   ["Onions & aromatics","Heat {o2} and {bu} in a heavy pot on medium-low. Cook {on} with a pinch of salt, stirring now and then, until deep, jammy golden brown.",30],
   ["Onions & aromatics","Scoop out about half of the onions as a topping. Add {ch} and {sp} to the rest and cook 2 minutes until fragrant.",2],
-  ["Blend","Squeeze the soft roasted garlic out of its skins into the pot. Add the roasted squash and parsnips and {st}. Simmer 5 minutes, then blend until completely smooth.",5],
+  ["Blend","Squeeze the soft roasted garlic cloves out of their skins into the pot. Add the roasted squash and parsnips and {st}. Simmer 5 minutes, then blend until completely smooth.",5],
   ["Finish","Stir in {cr} and warm gently. Add {ac}, then adjust salt and pepper."],
   ["Finish","Serve topped with the reserved onions, black pepper and chilli flakes or toasted pumpkin seeds."]],
  hack:["Make it dairy-free.|Use coconut milk and olive oil instead of cream and butter.","Save time.|Cut the squash and parsnip smaller so the tray roasts faster.","Don’t skip the acid.|Balsamic or lemon keeps the soup bright rather than sweet and heavy.","Thicker or thinner.|Start with 750 ml of stock and add more until it feels right."]});
 R.push({title:"Creamy caramelised fennel, onion & parsnip soup",tab:"Fennel & onion",sub:"Sweet fennel and slow onions, deglazed with sherry and blended with parsnip, topped with goat cheese.",base:4,active:30,total:65,
- ing:[I("fe","large fennel bulbs, thinly sliced (keep the fronds)",2,"pc","l","Base"),I("on","large yellow onions, thinly sliced",3,"pc","l","Base"),I("pa","parsnips, peeled and diced",2,"pc","l","Base"),I("bu","butter (or olive oil)",3,"tbsp","l","Base"),I("ga","garlic, minced",2,"clove","s","Base"),I("th","fresh thyme leaves",1,"tsp","s","Base"),
+ ing:[I("fe","large fennel bulbs, thinly sliced (keep the fronds)",2,"pc","l","Base"),I("on","large brown onions, thinly sliced",3,"pc","l","Base"),I("pa","parsnips, peeled and diced",2,"pc","l","Base"),I("bu","butter (or olive oil)",3,"tbsp","l","Base"),I("ga","garlic cloves, minced",2,"pc","s","Base"),I("th","fresh thyme leaves",1,"tsp","s","Base"),
   I("co","Cognac (2 parts Cognac to 4 parts sherry)",30,"ml","l","Liquid"),I("sh","dry sherry (Oloroso or Fino)",60,"ml","l","Liquid"),I("st","vegetable or chicken stock",1000,"ml","l","Liquid"),I("sp","salt and black pepper",null,"to taste","t","Liquid"),
   I("gc","fresh goat cheese",115,"g","l","To serve"),I("wa","walnuts, roasted",40,"g","l","To serve",1)],
  st:[["Base","Melt {bu} in a large pot on medium heat. Add {on} and {fe} and cook slowly, stirring now and then, until deep golden brown, sweet and jammy.",35],
@@ -476,7 +477,7 @@ R.push({title:"Creamy caramelised fennel, onion & parsnip soup",tab:"Fennel & on
   ["To serve","Ladle into bowls and top with {gc}, the roasted walnuts and the reserved fennel fronds."]],
  hack:["More anise.|Stir in 1 tbsp Pernod or pastis at the end.","A warm background note.|Simmer a star anise pod in the stock and remove it before blending.","Brighter.|Add half a diced apple with the parsnips, or a squeeze of lemon at the end.","Deeper savoury flavour.|Stir half a teaspoon of yeast extract into the stock."]});
 R.push({title:"French onion soup",tab:"French onion",sub:"Onions caramelised slowly in butter, deglazed, simmered in rich beef stock and baked under toasted baguette and Gruyère.",base:6,active:40,total:130,
- ing:[I("on","yellow onions, peeled, halved and thinly sliced",1500,"g","l","Onions"),I("bu","unsalted butter",60,"g","l","Onions"),I("ol","olive oil",1.5,"tbsp","l","Onions"),I("su","sugar, to jumpstart browning",1,"tsp","l","Onions"),I("sa","kosher or sea salt, plus more to taste",1.5,"tsp","s","Onions"),I("ga","garlic, minced",4,"clove","s","Onions"),I("fl","plain flour (optional, to lightly body the broth)",1.5,"tbsp","l","Onions"),
+ ing:[I("on","brown onions, peeled, halved and thinly sliced",1500,"g","l","Onions"),I("bu","unsalted butter",60,"g","l","Onions"),I("ol","olive oil",1.5,"tbsp","l","Onions"),I("su","sugar, to jumpstart browning",1,"tsp","l","Onions"),I("sa","kosher or sea salt, plus more to taste",1.5,"tsp","s","Onions"),I("ga","garlic cloves, minced",4,"pc","s","Onions"),I("fl","plain flour (optional, to lightly body the broth)",1.5,"tbsp","l","Onions"),
   I("wi","dry white wine or dry sherry",150,"ml","l","Broth"),I("st","rich beef stock",1500,"ml","l","Broth"),I("th","fresh thyme sprigs",3,"sprig","s","Broth"),I("bay","bay leaves",2,"pc","s","Broth"),I("wo","Worcestershire sauce (optional)",null,"a dash","t","Broth"),
   I("ba","crusty baguette, sliced",1,"pc","l","Topping"),I("gr","Gruyère, grated",175,"g","l","Topping")],
  st:[["Onions","Heat {bu} and {ol} in a large heavy pot on medium. Add {on}, {su} and {sa}, toss, and cook covered until softened.",10],
@@ -500,7 +501,7 @@ R.push({title:"Brussels sprout & cauliflower salad with freekeh",tab:"Brussels &
   ["To serve","Pile onto plates. Add spoonfuls of {lb}, dust with {su} and finish with a little more dukkah."]],
  hack:["Add protein.|Serve with lemongrass and coconut poached chicken, as in the photos of the side dish.","Make it gluten-free.|Use cooked brown rice or quinoa instead of freekeh.","Make it vegan.|Use thick coconut yoghurt in place of labneh.","Make your own labneh.|Strain thick yoghurt with a pinch of salt in a cloth overnight in the fridge."]});
 R.push({title:"Chilli scramble with mushroom & eggplant XO",tab:"Chilli scramble",sub:"A home version inspired by the Cuckoo Callay menu: soft scrambled eggs with fermented chilli, a sticky mushroom and eggplant XO, curry leaves, crispy shallots and toasted roti.",base:2,active:40,total:55,
- ing:[I("ep","eggplant, in small dice",300,"g","l","Mushroom & eggplant XO"),I("mu","shiitake or oyster mushrooms, chopped",150,"g","l","Mushroom & eggplant XO"),I("o1","neutral oil",3,"tbsp","l","Mushroom & eggplant XO"),I("ga","garlic, minced",3,"clove","s","Mushroom & eggplant XO"),I("fx","fermented chilli paste",1,"tbsp","s","Mushroom & eggplant XO"),I("so","soy sauce",1,"tbsp","s","Mushroom & eggplant XO"),I("sg","sugar",1,"tsp","l","Mushroom & eggplant XO"),
+ ing:[I("ep","eggplant, in small dice",300,"g","l","Mushroom & eggplant XO"),I("mu","shiitake or oyster mushrooms, chopped",150,"g","l","Mushroom & eggplant XO"),I("o1","neutral oil",3,"tbsp","l","Mushroom & eggplant XO"),I("ga","garlic cloves, minced",3,"pc","s","Mushroom & eggplant XO"),I("fx","fermented chilli paste",1,"tbsp","s","Mushroom & eggplant XO"),I("so","soy sauce",1,"tbsp","s","Mushroom & eggplant XO"),I("sg","sugar",1,"tsp","l","Mushroom & eggplant XO"),
   I("eg","eggs",6,"pc","l","Soft scrambled eggs"),I("bu","butter",20,"g","l","Soft scrambled eggs"),I("fc","fermented chilli paste",2,"tbsp","s","Soft scrambled eggs"),
   I("cl","curry leaves",1,"sprig","l","To finish"),I("o2","oil for frying the leaves",2,"tbsp","l","To finish"),I("cs","crispy fried shallots",3,"tbsp","l","To finish"),I("cc","coriander",20,"g","l","To finish"),I("li","lime",1,"pc","l","To finish"),I("ro","roti paratha",2,"pc","l","To finish")],
  st:[["Mushroom & eggplant XO","Heat {o1} in a wide pan. Fry {ep} until deeply browned and soft, then add {mu} and cook until golden.",15],
@@ -513,8 +514,8 @@ R.push({title:"Chilli scramble with mushroom & eggplant XO",tab:"Chilli scramble
 R.push({title:"Cuckoo’s nest bowl with wild grains, greens and poached egg",tab:"Cuckoo’s nest",sub:"A home version inspired by the Cuckoo Callay menu: wild grains with sauteed greens, spicy chermoula, herbed labneh, almonds and a 63° egg in a crisp pastry nest.",base:2,active:50,total:80,
  ing:[I("ka","kataifi pastry (shredded filo)",60,"g","l","Crispy nest"),I("bu","butter, melted",30,"g","l","Crispy nest"),
   I("gr","mixed wild grains (wild rice, red quinoa, brown rice)",120,"g","l","Wild grains"),I("wt","water",300,"ml","l","Wild grains"),
-  I("br","broccolini",150,"g","l","Greens"),I("sn","snow peas",80,"g","l","Greens"),I("pe","fresh or frozen peas",100,"g","l","Greens"),I("ke","baby kale",60,"g","l","Greens"),I("ol","olive oil",1,"tbsp","l","Greens"),I("g1","garlic, sliced",1,"clove","s","Greens"),
-  I("pa","parsley",15,"g","l","Spicy chermoula"),I("co","coriander",15,"g","l","Spicy chermoula"),I("g2","garlic",1,"clove","s","Spicy chermoula"),I("ch","chilli flakes",1,"tsp","s","Spicy chermoula"),I("cu","ground cumin",.5,"tsp","s","Spicy chermoula"),I("pk","smoked paprika",.5,"tsp","s","Spicy chermoula"),I("lm","lemon juice",1,"tbsp","s","Spicy chermoula"),I("o2","olive oil",3,"tbsp","l","Spicy chermoula"),
+  I("br","broccolini",150,"g","l","Greens"),I("sn","snow peas",80,"g","l","Greens"),I("pe","fresh or frozen peas",100,"g","l","Greens"),I("ke","baby kale",60,"g","l","Greens"),I("ol","olive oil",1,"tbsp","l","Greens"),I("g1","garlic cloves, sliced",1,"pc","s","Greens"),
+  I("pa","parsley",15,"g","l","Spicy chermoula"),I("co","coriander",15,"g","l","Spicy chermoula"),I("g2","garlic cloves",1,"pc","s","Spicy chermoula"),I("ch","chilli flakes",1,"tsp","s","Spicy chermoula"),I("cu","ground cumin",.5,"tsp","s","Spicy chermoula"),I("pk","smoked paprika",.5,"tsp","s","Spicy chermoula"),I("lm","lemon juice",1,"tbsp","s","Spicy chermoula"),I("o2","olive oil",3,"tbsp","l","Spicy chermoula"),
   I("lb","labneh",100,"g","l","To serve"),I("he","chopped soft herbs (mint, dill, chives)",1,"tbsp","l","To serve"),I("al","almonds, soaked, dried and roasted, chopped",30,"g","l","To serve"),I("eg","eggs, for 63 °C eggs",2,"pc","l","To serve")],
  st:[["Eggs","Start first. Hold a pot of water at 63 °C with a thermometer (or use a sous-vide stick). Lower in {eg} and cook for 45–60 minutes.",45],
   ["Crispy nest","Heat the oven to 180 °C. Toss {ka} with {bu} and press into greased ramekins or a muffin tin to form nests."],
@@ -574,6 +575,13 @@ const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",
 const pad=x=>String(x).padStart(2,"0"),iso=d=>d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate());
 const cap=s=>s?s[0].toUpperCase()+s.slice(1):s;
 const dl=d=>new Date(d+"T12:00").toLocaleDateString(undefined,{weekday:"short",day:"numeric",month:"short"});
+const SZ=/^(large|small|medium|big)\s+/;
+const AL={"brown onion":"brown onions","yellow onion":"brown onions","yellow onions":"brown onions","garlic":"garlic cloves","garlic clove":"garlic cloves","unsalted butter":"butter","raw egg":"eggs","hard-boiled eggs":"eggs"};
+const PCW={"brown onions":150},TBG={"butter":14};
+const canon=s=>{s=s.toLowerCase().replace(/\(.*?\)/g,"").trim().replace(SZ,"");return AL[s]||s};
+const SC=["Fruit","Vegetables","Dairy & Eggs","Meat, Fish & Poultry","Bakery","Dry Goods / Pantry","Canned & Jarred Foods","Herbs & Spices","Frozen Foods","Beverages","Alcohol","Miscellaneous"];
+const CR=[[/wine|cognac|sherry/,10],[/stock|paste|worcestershire|coconut milk|tikka/,6],[/dried shiitake|\bflour\b|\bsugar\b|lentil|freekeh|grains|\brice\b|rigatoni|pasta|dukkah|almond|walnut|honey|maple|\boil\b|vinegar|soy sauce|breadcrumb|fried shallots/,5],[/bay leaves|rosemary|thyme|parsley|\bmint\b|\bdill\b|chives|curry leaves|\bherbs?\b|cumin|paprika|turmeric|^cloves$|chilli flakes|cayenne|cajun|sumac|\bsalt\b|\bpepper\b/,7],[/lemon|\blimes?\b|pomegranate|apple/,0],[/onion|shallot|garlic|cauliflower|parsnip|potato|carrot|leek|squash|mushroom|eggplant|fennel|sprout|courgette|capsicum|chilli|broccolini|peas|kale|tomato/,1],[/butter|cream|milk|egg|parmesan|gruy|cheese|labneh|yoghurt|cr[eè]me/,2],[/chicken|pork|beef|veal|mince/,3],[/baguette|roti|kataifi|bread/,4]];
+const scat=nm=>{const r=CR.find(x=>x[0].test(nm));return r?r[1]:11};
 const rnd=(v,u)=>u=="g"||u=="ml"?Math.max(5,Math.round(v/5)*5):(u=="tsp"||u=="tbsp")?Math.max(.25,Math.round(v*4)/4):Math.max(1,Math.ceil(v-1e-9));
 const fq=(v,u)=>(+v.toFixed(2))+(u&&u!="pc"?" "+u:"");
 const stp=u=>u=="g"||u=="ml"?50:(u=="tsp"||u=="tbsp")?.5:1;
@@ -614,9 +622,9 @@ function openR(i){closeM();cur=i;n=R[i].base>=6?6:4;S.view="recipe";draw(1)}
 function lines(){
  const m={};
  plan.forEach(p=>{const r=R[p.r];if(!r)return;const lin=p.p/r.base,sf=lin>1?1+(lin-1)*.75:1-(1-lin)*.75;
-  r.ing.forEach(i=>{const nm=i.n.split(",")[0].replace(/\(.*?\)/g,"").trim().toLowerCase(),fx=i.a==null,u=fx?"":i.u,key=nm+"|"+u;
-   const e=m[key]||(m[key]={key,nm,u,fx,t:0,from:[],txt:fx?i.u:""});
-   const v=fx?null:i.a*(i.s=="s"?sf:lin);if(!fx)e.t+=v;
+  r.ing.forEach(i=>{const nm=canon(i.n.replace(/\(.*?\)/g,"").split(",")[0]),fx=i.a==null;if(/^(cold )?water$/.test(nm))return;
+   let u=fx?"":i.u,v=fx?null:i.a*(i.s=="s"?sf:lin);if(!fx&&u=="g"&&PCW[nm]){v/=PCW[nm];u="pc"}if(!fx&&u=="tbsp"&&TBG[nm]){v*=TBG[nm];u="g"}
+   const key=nm+"|"+u,e=m[key]||(m[key]={key,nm,u,fx,t:0,from:[],txt:fx?i.u:""});if(!fx)e.t+=v;
    e.from.push({t:r.tab||r.title,p:p.p,v,d:p.d,u,txt:i.u})})});
  return Object.values(m).map(e=>(e.t=e.fx?0:rnd(e.t,e.u),e)).sort((a,b)=>a.nm.localeCompare(b.nm))}
 const qty=(key,q,u)=>`<div class="qty"><button data-act="dec" data-key="${esc(key)}" aria-label="Decrease">−</button><input class="fi qi" type="number" min="0" step="any" value="${q}" data-qk="${esc(key)}" aria-label="Quantity"><span class="un">${u=="pc"?"pcs":esc(u||"")}</span><button data-act="inc" data-key="${esc(key)}" aria-label="Increase">+</button></div>`;
@@ -625,10 +633,18 @@ function shopView(){
  const row=e=>{const ed=shop.ov[e.key]!=null,q=ed?shop.ov[e.key]:e.t,op=S.open[e.key],k=esc(e.key);
   return `<li class="si ${shop.done[e.key]?"done":""}"><input type="checkbox" data-sc="${k}" ${shop.done[e.key]?"checked":""} aria-label="Bought ${esc(e.nm)}"><div class="sn"><button class="lnk" data-act="trace" data-key="${k}" aria-expanded="${!!op}">${esc(cap(e.nm))}</button>${ed?` <span class="est">(edited) <button class="lnk" data-act="reset" data-key="${k}">reset</button></span>`:""}${e.fx?` <span class="est">(${esc(e.txt)})</span>`:""}</div>${e.fx?"":qty(e.key,q,e.u)}<button class="alt sm" data-act="have" data-key="${k}">Have it</button>${op?`<div class="tr"><b>Used for:</b><br>${e.from.map(f=>`${esc(f.t)} (${f.p} servings, ${dl(f.d)}): ${f.v==null?esc(f.txt):fq(rnd(f.v,f.u),f.u)}`).join("<br>")}</div>`:""}</li>`};
  const man=m=>`<li class="si ${shop.done["m:"+m.id]?"done":""}"><input type="checkbox" data-sc="m:${m.id}" ${shop.done["m:"+m.id]?"checked":""} aria-label="Bought ${esc(m.name)}"><div class="sn"><b>${esc(m.name)}</b> <span class="est">Added by you${m.note?" · "+esc(m.note):""}</span></div>${m.q!=null?qty("m:"+m.id,m.q,m.u):""}<button class="alt sm" data-act="delm" data-key="${m.id}">Remove</button></li>`;
- return `<h2>Shopping list</h2><p class="est">Built automatically from ${plan.length} planned meal${plan.length==1?"":"s"}. Duplicates are combined and amounts follow the servings you chose. Tap an ingredient to see where it is used.</p>
+ const G=SC.map(()=>[]);
+ act.forEach(e=>G[scat(e.nm)].push({n:e.nm,h:row(e)}));shop.man.forEach(m=>G[scat(canon(m.name))].push({n:m.name.toLowerCase(),h:man(m)}));
+ const list=G.map((g,i)=>g.length?`<section class="cg"><h3 class="cat">${SC[i]}</h3><ul class="l">${g.sort((a,b)=>a.n.localeCompare(b.n)).map(x=>x.h).join("")}</ul></section>`:"").join("");
+ return `<h2>Shopping list</h2><p class="est">Built automatically from ${plan.length} planned meal${plan.length==1?"":"s"}. Duplicates are combined and amounts follow the servings you chose. Tap an ingredient to see where it is used. <button class="lnk" data-act="txt">Copy as text</button></p>
  <div class="fb"><label>Item<input class="fi" id="mn" placeholder="e.g. Milk"></label><label>Quantity<input class="fi" id="mq" type="number" min="0" step="any" placeholder="2"></label><label>Unit<input class="fi" id="mu" placeholder="litres"></label><label>Note<input class="fi" id="mt" placeholder="optional"></label><button class="go sm" data-act="addm">Add item</button></div>
- ${act.length||shop.man.length?`<ul class="l">${shop.man.map(man).join("")}${act.map(row).join("")}</ul>`:`<div class="emp">Your list is empty.<br>Plan meals in the calendar and the ingredients appear here.<div class="btns" style="justify-content:center"><button class="go" data-nav="cal">Open Meal Calendar</button></div></div>`}
+ ${act.length||shop.man.length?list:`<div class="emp">Your list is empty.<br>Plan meals in the calendar and the ingredients appear here.<div class="btns" style="justify-content:center"><button class="go" data-nav="cal">Open Meal Calendar</button></div></div>`}
  ${home.length?`<details><summary>Already at home (${home.length})</summary><ul class="l" style="margin-top:10px">${home.map(e=>`<li class="si"><div class="sn">${esc(cap(e.nm))}</div><button class="alt sm" data-act="unhave" data-key="${esc(e.key)}">Put back on list</button></li>`).join("")}</ul></details>`:""}`}
+function shopTxt(){
+ const L=lines().filter(e=>!shop.have[e.key]&&!shop.done[e.key]),G=SC.map(()=>[]);
+ L.forEach(e=>{const q=shop.ov[e.key]!=null?shop.ov[e.key]:e.t;G[scat(e.nm)].push(cap(e.nm)+(e.fx?" ("+e.txt+")":" – "+fq(q,e.u)))});
+ shop.man.filter(m=>!shop.done["m:"+m.id]).forEach(m=>G[scat(canon(m.name))].push(cap(m.name)+(m.q!=null?" – "+fq(m.q,m.u):"")+(m.note?" ("+m.note+")":"")));
+ return G.map((g,i)=>g.length?SC[i]+"\n"+g.sort().map(x=>"- "+x).join("\n"):"").filter(Boolean).join("\n\n")}
 // ---- Meal calendar
 function calView(){
  const {y,m}=S.mo,off=(new Date(y,m,1).getDay()+6)%7,dim=new Date(y,m+1,0).getDate(),td=iso(now);
@@ -667,6 +683,8 @@ document.addEventListener("click",e=>{
   if(a=="x")closeM();
   else if(a=="savephoto"){closeM();if(pend)setPh0(pend)}
   else if(a=="theme")toggleTheme();
+  else if(a=="txt")modal(`<h3>Shopping list</h3><textarea class="fi" id="stx" rows="14" readonly>${esc(shopTxt())}</textarea><div class="btns"><button class="go" data-act="cptxt">Copy</button><button class="alt" data-act="x">Close</button></div>`);
+  else if(a=="cptxt"){const t=$("#stx");t.select();try{navigator.clipboard.writeText(t.value)}catch(_){try{document.execCommand("copy")}catch(_){}}t.blur()}
   else if(a=="home"){S.view="home";draw(1)}
   else if(a=="planit"){S.pr=cur;S.view="cal";draw(1)}
   else if(a=="clr"){S.q=S.ing=S.cat=S.kc="";draw()}
